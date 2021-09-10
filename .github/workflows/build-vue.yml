@@ -16,3 +16,6 @@ jobs:
         username: 'pm-random'
         reponame: 'pm-random-next'
         token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+        gitemail: 'cd@example.com'
+        gitname: 'GitHub CD'
+        gitmsg: 'Build Vue App'
