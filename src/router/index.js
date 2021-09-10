@@ -7,6 +7,7 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'Home', component: Home },
     { path: '/:pathMatch(.*)', component: NotFound }
+    { path: '/theme-skills', name: 'ThemeSkills', component: () => import('../views/ThemeSkills.vue') },
   ],
 })
 

@@ -11,16 +11,39 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+table {
+  border-collapse: collapse;
+  margin: auto;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+thead tr {
+  background-color: #77AA6D;
+  color: white;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+tbody tr {
+  border-bottom: thin solid #AAAAAA;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #AAAAAA;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #EBEBEB;
+}
+
+th, td {
+  border: thin solid #AAAAAA;
+  padding: 9px;  
+}
+
+td img {
+  vertical-align: middle;
+  padding: 2px;
 }
 </style>
