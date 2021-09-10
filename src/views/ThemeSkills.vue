@@ -1,6 +1,6 @@
 <template>
   <h2>Theme Skills</h2>
-  <table>
+  <table v-if="this.loaded">
     <thead>
       <tr>
         <th>Character</th>
@@ -36,12 +36,14 @@
           character.rest = Object.entries(syncpairs).slice(1);
           this.characters.push(character);
         }
+        this.loaded = true;
       });
     },
 
     data() {
       return {
-        characters: []
+        characters: [],
+        loaded: false
       }
     }
   }
