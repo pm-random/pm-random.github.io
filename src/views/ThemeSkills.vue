@@ -1,4 +1,5 @@
 <template>
+  <Header/>
   <h2>Theme Skills</h2>
   <table v-if="this.loaded">
     <thead>
@@ -26,8 +27,11 @@
 
 <script>
   import { JSONFetch } from "../data.js";
+  import Header from '@/components/Header.vue'
 
   export default {
+    components: { Header },
+
     created() {
       JSONFetch('team_skills').then(json => {
         for (const [name, syncpairs] of Object.entries(json)) {
@@ -45,7 +49,7 @@
         characters: [],
         loaded: false
       }
-    }
+    },
   }
 </script>
 
