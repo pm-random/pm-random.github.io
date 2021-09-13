@@ -25,6 +25,7 @@ img {
 span {
   font-family: 'Rajdhani', sans-serif;
   font-size: 2em;
+  color: black;
   vertical-align: middle;
   padding: 6px;
 }
@@ -35,7 +36,6 @@ sup {
 
 a {
   text-decoration: none;
-  color: initial;
 }
 </style>
 
