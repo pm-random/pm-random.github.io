@@ -2,7 +2,7 @@
   <nav class="navbar navbar-light bg-light">
     <router-link :to="'/'">
       <img src="/logo.png">
-      <span>PM Random</span>
+      <span>PM Random<sup>{{ version }}</sup></span>
     </router-link>
   </nav>
 </template>
@@ -29,8 +29,25 @@ span {
   padding: 6px;
 }
 
+sup {
+  color: blue;
+}
+
 a {
   text-decoration: none;
   color: initial;
 }
 </style>
+
+
+<script>
+import { GAME_VERSION } from "@/data.js";
+
+export default {
+  data() {
+    return {
+      version: GAME_VERSION
+    }
+  }
+}
+</script>
