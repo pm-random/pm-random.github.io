@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link :to="'/'">
-      <img src="/logo.png">
+      <img src="/favicon.ico">
       <span>PM Random<sup>{{ version }}</sup></span>
     </router-link>
   </nav>
