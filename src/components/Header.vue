@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light bg-light">
+  <nav>
     <router-link :to="'/'">
       <img src="/logo.png">
       <span>PM Random<sup>{{ version }}</sup></span>
