@@ -4,6 +4,8 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
     { path: '/', name: 'Home', component: () => import('../views/Home.vue') },
+    { path: '/characters', name: 'Characters', component: () => import('../views/Characters.vue') },
+    { path: '/monsters', name: 'Monsters', component: () => import('../views/Monsters.vue') },
     { path: '/theme-skills', name: 'ThemeSkills', component: () => import('../views/ThemeSkills.vue') },
     { path: '/:pathMatch(.*)', component: () => import('../views/NotFound.vue') }
   ],
