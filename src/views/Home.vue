@@ -35,9 +35,9 @@ export default {
           link: `/theme-skills`
         },
         {
-          title: "XP Curves",
+          title: "XP",
           image: `${DATA_URL}/images/characters/ch0085_00_hopef_1024.ktx.png`,
-          link: `/xp-curves`
+          link: `/xp`
         },
       ]
     }
