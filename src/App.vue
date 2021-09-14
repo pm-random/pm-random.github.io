@@ -50,11 +50,11 @@ tbody tr:nth-child(even) {
 
 th, td {
   border: thin solid #AAAAAA;
-  padding: 9px;  
+  padding: 5px;
 }
 
 td img {
   vertical-align: middle;
-  padding: 2px;
+  padding: 1px;
 }
 </style>
