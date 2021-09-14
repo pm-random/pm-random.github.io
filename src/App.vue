@@ -5,10 +5,11 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
-body {
+html, body {
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
+  width: fit-content;
 }
 
 #app {
