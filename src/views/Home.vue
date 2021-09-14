@@ -34,11 +34,11 @@ export default {
           image: `${DATA_URL}/images/characters/ch0069_00_elitem_1024.ktx.png`,
           link: `/theme-skills`
         },
-        {
+/*        {
           title: "XP",
           image: `${DATA_URL}/images/characters/ch0085_00_hopef_1024.ktx.png`,
           link: `/xp`
-        },
+        },*/
       ]
     }
   }
