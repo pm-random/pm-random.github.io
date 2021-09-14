@@ -1,5 +1,5 @@
 <template>
-  <Header/>
+  <HeaderBar/>
   <HintedCharacterTable v-for="category in present" :key="category" :category="category"/>
   <template v-if="absent !== null">
     <h2>No information so far</h2>
@@ -25,11 +25,11 @@
 
 <script>
 import { DATA_URL, JSONFetch } from "@/data.js";
-import Header from "@/components/Header"
+import HeaderBar from "@/components/HeaderBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
 
 export default {
-  components: { Header, HintedCharacterTable },
+  components: { HeaderBar, HintedCharacterTable },
 
   created() {
     JSONFetch("characters_present").then(json => this.present = json);

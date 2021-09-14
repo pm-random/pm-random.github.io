@@ -1,5 +1,5 @@
 <template>
-  <Header/>
+  <HeaderBar/>
   <h2>Theme Skills</h2>
   <table v-if="this.loaded">
     <thead>
@@ -27,10 +27,10 @@
 
 <script>
   import { JSONFetch } from "../data.js";
-  import Header from '@/components/Header.vue'
+  import HeaderBar from '@/components/HeaderBar.vue'
 
   export default {
-    components: { Header },
+    components: { HeaderBar },
 
     created() {
       JSONFetch('team_skills').then(json => {

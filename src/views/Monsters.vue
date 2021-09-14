@@ -1,5 +1,5 @@
 <template>
-  <Header/>
+  <HeaderBar/>
   <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
   <template v-if="current !== null">
     <h2>Current version</h2>
@@ -21,11 +21,11 @@
 
 <script>
 import { JSONFetch, GAME_VERSION } from "@/data.js";
-import Header from "@/components/Header"
+import HeaderBar from "@/components/HeaderBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
 
 export default {
-  components: { Header, HintedCharacterTable },
+  components: { HeaderBar, HintedCharacterTable },
 
   created() {
     JSONFetch("monsters_hinted").then(json => this.hinted = json);
