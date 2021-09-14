@@ -6,9 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
 html, body {
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
+  margin: auto;
   width: fit-content;
 }
 
@@ -17,6 +15,10 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+#page-content {
+  margin: 8px;
 }
 
 h1, h2, h3 {

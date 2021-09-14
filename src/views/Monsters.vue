@@ -1,21 +1,23 @@
 <template>
   <HeaderBar/>
-  <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
-  <template v-if="current !== null">
-    <h2>Current version</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="monster in current">
-          <td>{{ monster }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </template>
+  <div id="page-content">
+    <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
+    <template v-if="current !== null">
+      <h2>Current version</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="monster in current">
+            <td>{{ monster }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+  </div>
 </template>
 
 

@@ -62,6 +62,7 @@ sup {
   grid-gap: 5px;
   margin-left: 8px;
   margin-right: 8px;
+  margin: 0px;
 }
 
 .item {
