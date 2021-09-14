@@ -1,4 +1,4 @@
-# pm-random-next
+# PM Random
 
 ## Project setup
 ```
