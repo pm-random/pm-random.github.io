@@ -14,7 +14,7 @@ jobs:
       uses: xRealNeon/VuePagesAction@1.0.0
       with:
         username: 'pm-random'
-        reponame: 'pm-random-next'
+        reponame: 'pm-random.github.io'
         token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
         gitemail: 'cd@example.com'
         gitname: 'GitHub CD'
