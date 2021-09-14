@@ -3,6 +3,8 @@
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
 body {
   margin-top: 0;
   margin-left: 0;
@@ -15,6 +17,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+h1, h2, h3 {
+  font-family: 'Rajdhani', sans-serif;
 }
 
 table {

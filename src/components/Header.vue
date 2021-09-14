@@ -9,8 +9,6 @@
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
-
 nav {
   background-color: #f1f1f1;
   text-align: left;

@@ -47,10 +47,7 @@ export default {
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
-
 h1 {
-  font-family: 'Rajdhani', sans-serif;
   font-size: 3em;
   color: black;
 }
