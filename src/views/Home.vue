@@ -25,7 +25,7 @@ export default {
           link: `/characters`
         },
         {
-          title: "Pokémon list",
+          title: "Pokémon List",
           image: `${DATA_URL}/images/monsters/renders/mega-blaziken.png`,
           link: `/monsters`
         },
