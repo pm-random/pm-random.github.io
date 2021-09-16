@@ -5,18 +5,9 @@
     <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
     <template v-if="current !== null">
       <h2>Current version</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="monster in current">
-            <td>{{ monster }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div id="grid">
+        <div class="grid-item" v-for="monster in current">{{ monster }}</div>
+      </div>
     </template>
   </div>
 </template>
@@ -49,3 +40,19 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+#grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+}
+
+.grid-item {
+  border: solid 1px lightgray;
+  background-color: #EBEBEB;
+  border-radius: 4px;
+  padding: 5px;
+}
+</style>
