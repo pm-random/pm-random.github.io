@@ -1,7 +1,7 @@
 <template>
   <HeaderBar/>
   <template v-if="this.loaded">  
-    <h2>Theme Skills</h2>
+    <h1>Theme Skills</h1>
     <table>
       <thead>
         <tr>
