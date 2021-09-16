@@ -1,6 +1,7 @@
 <template>
   <HeaderBar/>
   <div id="page-content">
+    <h1>Pokémon</h1>
     <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
     <template v-if="current !== null">
       <h2>Current version</h2>

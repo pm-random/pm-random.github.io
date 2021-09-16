@@ -1,6 +1,7 @@
 <template>
   <HeaderBar/>
   <div id="page-content">
+    <h1>Characters</h1>
     <HintedCharacterTable v-for="category in present" :key="category" :category="category"/>
     <template v-if="absent !== null">
       <h2>No information so far</h2>
