@@ -1,6 +1,6 @@
 <template>
   <HeaderBar/>
-  <template v-if="this.loaded">  
+  <div id="page-content" v-if="this.loaded">  
     <h1>Theme Skills</h1>
     <table>
       <thead>
@@ -24,7 +24,7 @@
         </template>
       </tbody>
     </table>
-  </template>
+  </div>
 </template>
 
 <script>
