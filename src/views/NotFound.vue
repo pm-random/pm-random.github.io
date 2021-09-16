@@ -9,9 +9,9 @@
 </template>
 
 <style>
-  h1 {
-    font-size: 4em;
-  }
+h1 {
+  font-size: 4em;
+}
 </style>
 
 <script>

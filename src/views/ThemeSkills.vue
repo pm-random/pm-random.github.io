@@ -28,40 +28,40 @@
 </template>
 
 <script>
-  import { JSONFetch } from "../data.js";
-  import HeaderBar from '@/components/HeaderBar.vue'
-  import { useHead } from '@vueuse/head';
+import { JSONFetch } from "../data.js";
+import HeaderBar from '@/components/HeaderBar.vue'
+import { useHead } from '@vueuse/head';
 
-  export default {
-    components: { HeaderBar },
+export default {
+  components: { HeaderBar },
 
-    setup() {
-      useHead({ title: "Theme Skills | PM Random" })
-    },
+  setup() {
+    useHead({ title: "Theme Skills | PM Random" })
+  },
 
-    created() {
-      JSONFetch('team_skills').then(json => {
-        for (const [name, syncpairs] of Object.entries(json)) {
-          let firstKey = Object.keys(syncpairs)[0];
-          let character = {'name': name, 'first': [firstKey, syncpairs[firstKey]]};
-          character.rest = Object.entries(syncpairs).slice(1);
-          this.characters.push(character);
-        }
-        this.loaded = true;
-      });
-    },
-
-    data() {
-      return {
-        characters: [],
-        loaded: false
+  created() {
+    JSONFetch('team_skills').then(json => {
+      for (const [name, syncpairs] of Object.entries(json)) {
+        let firstKey = Object.keys(syncpairs)[0];
+        let character = {'name': name, 'first': [firstKey, syncpairs[firstKey]]};
+        character.rest = Object.entries(syncpairs).slice(1);
+        this.characters.push(character);
       }
-    },
-  }
+      this.loaded = true;
+    });
+  },
+
+  data() {
+    return {
+      characters: [],
+      loaded: false
+    }
+  },
+}
 </script>
 
 <style>
-  .trainer-name {
-    background-color: white;
-  }
+.trainer-name {
+  background-color: white;
+}
 </style>
