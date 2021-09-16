@@ -64,9 +64,7 @@ sup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
-  margin-left: 8px;
-  margin-right: 8px;
-  margin: 0px;
+  margin: 4px;
 }
 
 .item {
