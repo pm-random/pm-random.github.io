@@ -36,7 +36,7 @@ thead tr {
 }
 
 tbody tr {
-  border-bottom: thin solid #AAAAAA;
+  border-bottom: 1px solid #AAAAAA;
 }
 
 tbody tr:last-of-type {
@@ -52,7 +52,7 @@ tbody tr:nth-child(even) {
 }
 
 th, td {
-  border: thin solid #AAAAAA;
+  border: 1px solid #AAAAAA;
   padding: 5px;
 }
 

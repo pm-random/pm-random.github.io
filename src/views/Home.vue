@@ -75,7 +75,7 @@ sup {
 }
 
 .item {
-  border: solid thin gray;
+  border: solid 1px gray;
   border-radius: 15px;
   padding: 5px;
   text-decoration: none;
