@@ -7,7 +7,6 @@
 
 html, body {
   margin: auto;
-  width: fit-content;
 }
 
 #app {
@@ -19,6 +18,7 @@ html, body {
 
 #page-content {
   margin: 8px;
+  width: fit-content;
 }
 
 h1, h2, h3 {
