@@ -30,9 +30,14 @@
 <script>
   import { JSONFetch } from "../data.js";
   import HeaderBar from '@/components/HeaderBar.vue'
+  import { useHead } from '@vueuse/head';
 
   export default {
     components: { HeaderBar },
+
+    setup() {
+      useHead({ title: "Theme Skills | PM Random" })
+    },
 
     created() {
       JSONFetch('team_skills').then(json => {

@@ -25,9 +25,15 @@
 import { JSONFetch, GAME_VERSION } from "@/data.js";
 import HeaderBar from "@/components/HeaderBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
+import { useHead } from '@vueuse/head';
+
 
 export default {
   components: { HeaderBar, HintedCharacterTable },
+
+  setup() {
+    useHead({ title: "Pokémon | PM Random" })
+  },
 
   created() {
     JSONFetch("monsters_hinted").then(json => this.hinted = json);

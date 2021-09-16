@@ -13,3 +13,13 @@
     font-size: 4em;
   }
 </style>
+
+<script>
+import { useHead } from '@vueuse/head';
+
+export default {
+  setup() {
+    useHead({ title: "Page not found | PM Random" })
+  },
+}
+</script>

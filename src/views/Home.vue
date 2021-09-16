@@ -13,9 +13,12 @@
 
 <script>
 import { DATA_URL, GAME_VERSION } from "@/data.js";
-import { useHead } from '@vueuse/head'
+import { useHead } from '@vueuse/head';
 
 export default {
+  setup() {
+    useHead({ title: "PM Random" })
+  },
   data() {
     return {
       version: GAME_VERSION,

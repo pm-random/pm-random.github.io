@@ -29,9 +29,15 @@
 import { DATA_URL, JSONFetch } from "@/data.js";
 import HeaderBar from "@/components/HeaderBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
+import { useHead } from '@vueuse/head';
+
 
 export default {
   components: { HeaderBar, HintedCharacterTable },
+
+  setup() {
+    useHead({ title: "Characters | PM Random" })
+  },
 
   created() {
     JSONFetch("characters_present").then(json => this.present = json);
