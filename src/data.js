@@ -4,4 +4,4 @@ export function JSONFetch(path) {
   return fetch(`${DATA_URL}/json/${path}.json`).then(r => r.json())
 }
 
-export const GAME_VERSION = "1.12.5"
+export const GAME_VERSION = "1.13.0"
