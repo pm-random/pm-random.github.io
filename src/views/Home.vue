@@ -25,7 +25,7 @@ export default {
       items: [
         {
           title: "Non-recruitable characters",
-          image: `${DATA_URL}/images/characters/ch0159_00_kokuran_1024.ktx.png`,
+          image: `${DATA_URL}/images/characters/ch0190_00_ryuki_1024.ktx.png`,
           link: `/characters`
         },
         {
