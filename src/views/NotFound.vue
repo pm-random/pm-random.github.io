@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>404</h1>
-    <img src="/favicon.ico">
+    <img src="/images/404.png">
     <p><strong>Page not found :(</strong></p>
     <p>The requested page could not be found.</p>
     <router-link to="/">Homepage</router-link>
