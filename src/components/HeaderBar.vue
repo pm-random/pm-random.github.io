@@ -4,6 +4,9 @@
       <img src="/favicon.ico">
       <span>PM Random<sup>{{ version }}</sup></span>
     </router-link>
+    <a id="github" href="https://github.com/pm-random">
+      <img src="images/github-dark.png">    
+    </a>
   </nav>
 </template>
 
@@ -13,6 +16,8 @@ nav {
   background-color: #f1f1f1;
   text-align: left;
   padding: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
 img {
