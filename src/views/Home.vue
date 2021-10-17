@@ -25,24 +25,19 @@ export default {
       items: [
         {
           title: "Non-recruitable characters",
-          image: `${DATA_URL}/images/characters/ch0190_00_ryuki_1024.ktx.png`,
+          image: `images/characters.png`,
           link: `/characters`
         },
         {
           title: "Pokémon List",
-          image: `${DATA_URL}/images/monsters/renders/mega-blaziken.png`,
+          image: `images/monsters.png`,
           link: `/monsters`
         },
         {
           title: "Theme Skills",
-          image: `${DATA_URL}/images/characters/ch0069_00_elitem_1024.ktx.png`,
+          image: `images/theme-skills.png`,
           link: `/theme-skills`
         },
-/*        {
-          title: "XP",
-          image: `${DATA_URL}/images/characters/ch0085_00_hopef_1024.ktx.png`,
-          link: `/xp`
-        },*/
       ]
     }
   }
