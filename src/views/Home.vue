@@ -35,7 +35,7 @@ export default {
         },
         {
           title: "Theme Skills",
-          image: `images/theme-skills.png`,
+          image: `images/skill-sphere.png`,
           link: `/theme-skills`
         },
       ]
