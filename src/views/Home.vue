@@ -58,15 +58,15 @@ sup {
 #grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5px;
-  margin: 4px;
+  grid-gap: 10px;
+  margin: 10px;
 }
 
 .item {
-  border: solid 1px gray;
   border-radius: 15px;
   padding: 5px;
   text-decoration: none;
+  box-shadow: 3px 3px 2px 2px #BBBBBB;
 }
 
 .item:hover {
