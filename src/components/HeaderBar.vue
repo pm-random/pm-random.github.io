@@ -5,7 +5,7 @@
       <span>PM Random<sup>{{ version }}</sup></span>
     </router-link>
     <a id="github" href="https://github.com/pm-random">
-      <img src="images/github-dark.png">    
+      <img src="images/github.svg">    
     </a>
   </nav>
 </template>
