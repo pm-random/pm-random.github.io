@@ -5,7 +5,7 @@
       <tr>
         <th>Name</th>
         <th v-if="cat.hasImages">Image</th>
-        <th v-if="cat.hasNotes">Note</th>
+        <th v-if="cat.hasNotes">Notes</th>
         <th v-if="cat.hasSince">Since</th>
       </tr>
     </thead>
@@ -19,8 +19,8 @@
           </a>
         </td>
         <template v-if="cat.hasNotes">
-          <td v-if="character.note === undefined">&mdash;</td>
-          <td v-else v-html="character.note"></td>
+          <td v-if="character.notes === undefined">&mdash;</td>
+          <td v-else v-html="character.notes.join('<br>')"></td>
         </template>
         <template v-if="cat.hasSince">
           <td v-if="character.since === undefined">???</td>
@@ -67,7 +67,7 @@ function cleanCategory(category) {
   }
   category.characters = category.characters.map(cleanCharacter).sort(compareCharacters);
   category.hasImages = category.characters.find(x => x.images !== undefined);
-  category.hasNotes = category.characters.find(x => x.note !== undefined);
+  category.hasNotes = category.characters.find(x => x.notes !== undefined);
   category.hasSince = category.characters.find(x => x.since !== undefined);
   return category;
 }
