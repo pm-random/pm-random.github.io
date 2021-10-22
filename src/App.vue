@@ -7,7 +7,6 @@
 
 html, body {
   margin: auto;
-  width: fit-content;
 }
 
 #app {
@@ -18,7 +17,11 @@ html, body {
 }
 
 #page-content {
-  margin: 8px;
+  padding: 4px;
+}
+
+.responsive-x {
+  overflow-x: auto;
 }
 
 h1, h2, h3 {

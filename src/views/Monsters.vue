@@ -5,7 +5,7 @@
     <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
     <template v-if="current !== null">
       <h2>Current version</h2>
-      <div id="grid">
+      <div id="grid" class="responsive-x">
         <div class="grid-item" v-for="monster in current">{{ monster }}</div>
       </div>
     </template>

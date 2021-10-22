@@ -1,5 +1,6 @@
 <template>
   <h2 v-html="cat.title"></h2>
+  <div class="responsive-x">
   <table>
     <thead>
       <tr>
@@ -30,6 +31,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </template>
 
 
