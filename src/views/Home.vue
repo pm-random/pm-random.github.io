@@ -23,26 +23,11 @@ export default {
     return {
       version: GAME_VERSION,
       items: [
-        {
-          title: "Non-recruitable characters",
-          image: `images/characters.png`,
-          link: `/characters`
-        },
-        {
-          title: "Pokémon List",
-          image: `images/monsters.png`,
-          link: `/monsters`
-        },
-        {
-          title: "Theme Skills",
-          image: `images/skill-sphere.png`,
-          link: `/theme-skills`
-        },
-        {
-          title: "Revenue",
-          image: `images/gem.png`,
-          link: `/revenue`
-        },
+        { title: "Non-recruitable characters", image: `images/characters.png`, link: `/characters` },
+        { title: "Pokémon List", image: `images/monsters.png`, link: `/monsters` },
+        { title: "Theme Skills", image: `images/skill-sphere.png`, link: `/theme-skills` },
+        { title: "Revenue", image: `images/gem.png`, link: `/revenue` },
+        { title: "XP", image: `images/manual3.png`, link: `/xp` },
       ]
     }
   }
