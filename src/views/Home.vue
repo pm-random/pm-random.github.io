@@ -71,7 +71,7 @@ sup {
   border-radius: 15px;
   padding: 5px;
   text-decoration: none;
-  box-shadow: 3px 3px 2px 2px #BBBBBB;
+  box-shadow: 3px 3px 1px 1px #BBBBBB;
 }
 
 .item:hover {
