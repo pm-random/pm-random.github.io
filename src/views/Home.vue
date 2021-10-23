@@ -79,7 +79,7 @@ sup {
 }
 
 .item-image {
-  max-width: 100px;
+  max-height: 80px;
 }
 
 .item-title {
