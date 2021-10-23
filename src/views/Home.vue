@@ -38,6 +38,11 @@ export default {
           image: `images/skill-sphere.png`,
           link: `/theme-skills`
         },
+        {
+          title: "Revenue",
+          image: `images/gem.png`,
+          link: `/revenue`
+        },
       ]
     }
   }

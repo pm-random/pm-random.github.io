@@ -7,6 +7,7 @@ const router = createRouter({
     { path: '/characters', name: 'Characters', component: () => import('../views/Characters.vue') },
     { path: '/monsters', name: 'Monsters', component: () => import('../views/Monsters.vue') },
     { path: '/theme-skills', name: 'ThemeSkills', component: () => import('../views/ThemeSkills.vue') },
+    { path: '/revenue', name: 'Revenue', component: () => import('../views/Revenue.vue') },
     { path: '/:pathMatch(.*)', component: () => import('../views/NotFound.vue') }
   ],
 })
