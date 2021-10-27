@@ -29,7 +29,7 @@ export default {
 
   created() {
     JSONFetch("monsters_hinted").then(json => this.hinted = json);
-    JSONFetch("monsters").then(json => this.current = new Set(json));
+    JSONFetch("monsters").then(json => this.current = json["monsters"]);
   },
 
   data() {
