@@ -2,7 +2,7 @@
   <HeaderBar/>
   <h1>Revenue</h1>
   <h2>Sensor Tower data (Worldwide)</h2>
-  <line-chart :data="chartData" prefix="$" suffix="M"></line-chart>
+  <highcharts :options="chartOptions"></highcharts>
 </template>
 
 <script>
@@ -23,15 +23,40 @@ export default {
       json.push({
         name: "Combined",
         color: "#1111FF", 
-        data: json.map(store => store.data).reduce(this.dataMerger, {})
+        data: Object.entries(json.map(store => store.data).reduce(this.dataMerger, {}))
       });
-      this.chartData = json
+      this.chartOptions.series = json;
+      this.chartOptions.xAxis.categories = json[0].data.map(x => x[0]);
     });
   },
 
   data() {
     return {
-      chartData: null
+      chartData: null,
+      chartOptions: {
+        chart: {
+          type: 'spline',
+          numberFormatter: (value) => `$${value}M`
+        },
+        title: null,
+        credits: { enabled: false },
+        xAxis: {
+          labels: {
+            style: { fontSize:'12px' }
+          }
+        },
+        yAxis: {
+          title: null,
+          labels: {
+            style: { fontSize:'12px' }
+          }
+        },
+        plotOptions: {
+          spline: {
+            marker: { symbol: 'circle' },
+          }
+        }
+      }
     }
   },
 
