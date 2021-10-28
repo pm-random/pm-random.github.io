@@ -20,13 +20,15 @@ export default {
 
   created() {
     JSONFetch("revenue").then(json => {
-      json.push({
+      json.stores.forEach((store, index) => store.data = json.data.map(row => row[index + 1]));
+      json.stores.push({
         name: "Combined",
         color: "#1111FF", 
-        data: Object.entries(json.map(store => store.data).reduce(this.dataMerger, {}))
+        data: json.data.map(row => this.nullSum(row.slice(1)))
       });
-      this.chartOptions.series = json;
-      this.chartOptions.xAxis.categories = json[0].data.map(x => x[0]);
+
+      this.chartOptions.xAxis.categories = json.data.map(row => row[0]);
+      this.chartOptions.series = json.stores;
     });
   },
 
@@ -61,18 +63,8 @@ export default {
   },
 
   methods: {
-    dataMerger(map, tuples) {
-      tuples.forEach(tuple => {
-        let [k, v] = tuple;
-        if (v == null) {
-          map[k] = null;
-        } else if (k in map) {
-          map[k] = map[k] == null ? null : map[k] + v
-        } else {
-          map[k] = v
-        }
-      });
-      return map;
+    nullSum(row) {
+      return row.reduce((acc, current) => (acc == null || current == null) ? null : acc + current);
     }
   }
 }
