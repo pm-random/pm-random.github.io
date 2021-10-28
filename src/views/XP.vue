@@ -1,7 +1,7 @@
 <template>
   <HeaderBar/>
   <h1>XP</h1>
-  <line-chart :library="chartOptions" :data="displayedData"></line-chart>
+  <highcharts :options="chartOptions"></highcharts>
 </template>
 
 <script>
@@ -25,18 +25,35 @@ export default {
           data: entry[1].map((xp, index) => [index + 1, xp])
         }
       });
-      this.displayedData = this.rawData;
+      this.chartOptions.series = this.rawData;
     });
   },
 
   data() {
     return {
       rawData: null,
-      displayedData: null,
       chartOptions: {
+        chart: { type: "spline" },
+        title: null,
+        credits: { enabled: false },
+        xAxis: {
+          title: { text: "Level" },
+          labels: {
+            style: { fontSize: "12px" },
+          }
+        },
+        yAxis: {
+          title: { text: "Experience" },
+          labels: {
+            style: { fontSize: "12px" }
+          }
+        },
         plotOptions: {
-          series: {
-            marker: { enabled: false }
+          spline: {
+            marker: {
+              symbol: "circle",
+              enabled: false
+            }
           }
         }
       }
