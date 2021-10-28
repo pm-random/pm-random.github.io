@@ -18,6 +18,7 @@ nav {
   padding: 8px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 1px 3px #BBBBBB;
 }
 
 img {
