@@ -14,13 +14,13 @@
       <tr v-for="character in cat.characters">
         <td>{{ character.name }}</td>
         <td v-if="cat.hasImages">
-          <p v-if="character.images === undefined">&mdash;</p>
+          <p v-if="character.images === undefined" class="dash">&mdash;</p>
           <a v-for="image in character.images" :href="image">
             <img :src="image" style="max-height:100px;">
           </a>
         </td>
         <template v-if="cat.hasNotes">
-          <td v-if="character.notes === undefined">&mdash;</td>
+          <td v-if="character.notes === undefined" class="dash">&mdash;</td>
           <td v-else v-html="character.notes.join('<br>')"></td>
         </template>
         <template v-if="cat.hasSince">
@@ -86,3 +86,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.dash {
+  font-weight: bold;
+}
+</style>
