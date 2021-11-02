@@ -26,8 +26,7 @@ export default {
         color: "#1111FF", 
         data: json.data.map(row => this.nullSum(row.slice(1)))
       });
-
-      this.chartOptions.xAxis.categories = json.data.map(row => row[0]);
+      this.chartOptions.plotOptions.spline.pointStart = Date.parse(json.data[0][0]);
       this.chartOptions.series = json.stores;
     });
   },
@@ -43,8 +42,10 @@ export default {
         title: null,
         credits: { enabled: false },
         xAxis: {
+          type: 'datetime',
           labels: {
-            style: { fontSize:'12px' }
+            style: { fontSize:'12px' },
+            format: '{value:%B %Y}',
           }
         },
         yAxis: {
@@ -56,6 +57,7 @@ export default {
         plotOptions: {
           spline: {
             marker: { symbol: 'circle' },
+            pointIntervalUnit: 'month'
           }
         }
       }
