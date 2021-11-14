@@ -36,6 +36,7 @@ export default {
       chartOptions: {
         chart: {
           type: 'spline',
+          zoomType: 'x',
           numberFormatter: (value) => `$${value}M`
         },
         title: null,
