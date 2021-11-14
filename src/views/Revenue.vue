@@ -33,7 +33,6 @@ export default {
 
   data() {
     return {
-      chartData: null,
       chartOptions: {
         chart: {
           type: 'spline',
