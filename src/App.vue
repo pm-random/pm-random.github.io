@@ -31,19 +31,16 @@ h1, h2, h3 {
 table {
   border-collapse: collapse;
   margin: auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-bottom: 3px solid #aaf;
+  border-radius: 18px 18px 0px 0px;
+  overflow: hidden;
 }
 
-thead tr {
-  background-color: #77AA6D;
-  color: white;
-}
-
-tbody tr {
-  border-bottom: 1px solid #AAAAAA;
-}
-
-tbody tr:last-of-type {
-  border-bottom: 2px solid #AAAAAA;
+th {
+  padding: 10px;
+  background-color: #ccf;
+  color: black;
 }
 
 tbody tr:nth-child(odd) {
@@ -51,12 +48,12 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #EBEBEB;
+  background-color: #f5f5f5;
 }
 
-th, td {
-  border: 1px solid #AAAAAA;
+tr td {
   padding: 5px;
+  border: 1px lightgray solid;
 }
 
 td img {
