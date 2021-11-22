@@ -33,7 +33,8 @@ export default {
         credits: { enabled: false },
         xAxis: {
           type: 'datetime',
-          visible: true
+          visible: true,
+          plotBands: this.plotBands()
         },
         yAxis: { visible: false },
         title: null,
@@ -46,6 +47,27 @@ export default {
     formatDate(isoDate) {
       let [year, month, day] = isoDate.split('-');
       return `${day}/${month}/${year}`;
+    },
+
+    plotBands() {
+      const array = [];
+      for (let year = 2019; year <= new Date().getFullYear(); year++) {
+        array.push({
+          from: Date.UTC(year, 0, 1),
+          to: Date.UTC(year + 1, 0, 1),
+          color: year % 2 ? "#FBFBFB" : "#F6F6F6",
+          label: {
+            text: year,
+            style: {
+              color: '#888888',
+              fontSize: '18px',
+              fontWeight: 'bold'
+            },
+            y: 25
+          }
+        });
+      }
+      return array;
     },
 
     letterPrep(json) {
