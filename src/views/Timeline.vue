@@ -18,9 +18,12 @@ export default {
   },
 
   created() {
-    JSONFetch("dev_letter").then(this.letterPrep);
-    JSONFetch("versions").then(this.versionPrep);
-    JSONFetch("announcements").then(this.annoPrep);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    this.dateFormatter = new Intl.DateTimeFormat('en-UK', options);
+
+    JSONFetch("timeline_letter").then(this.letterPrep);
+    JSONFetch("timeline_version").then(this.versionPrep);
+    JSONFetch("timeline_other").then(this.otherPrep);
   },
 
   data() {
@@ -45,8 +48,7 @@ export default {
 
   methods: {
     formatDate(isoDate) {
-      let [year, month, day] = isoDate.split('-');
-      return `${day}/${month}/${year}`;
+      return this.dateFormatter.format(Date.parse(isoDate))
     },
 
     plotBands() {
@@ -59,7 +61,7 @@ export default {
           label: {
             text: year,
             style: {
-              color: '#888888',
+              color: '#999999',
               fontSize: '18px',
               fontWeight: 'bold'
             },
@@ -70,21 +72,25 @@ export default {
       return array;
     },
 
-    letterPrep(json) {
-      const base = {
-        name: "Dev Letter",
-        color: "green",
+    basePrep(name, color) {
+      return {
+        name: name,
+        color: color,
         marker: { symbol: 'circle' },
         tooltip: {
-          pointFormat: '<b>#{point.number}</b> - {point.date}'
+          pointFormat: '<b>{point.name}</b><br><i>{point.date}</i>'
         }
       }
+    },
+
+    letterPrep(json) {
+      const base = this.basePrep("Dev Letter", "green");
 
       base.data = json.letters.map((value, index) =>
         ({
           x: Date.parse(value.date),
           y: 3,
-          number: index + 1,
+          name: `Dev Letter ${index + 1}`,
           date: this.formatDate(value.date)
         })
       );
@@ -94,36 +100,23 @@ export default {
 
 
     versionPrep(json) {
-      const base = {
-        name: "Version",
-        color: "red",
-        marker: { symbol: 'circle' },
-        tooltip: {
-          pointFormat: '<b>{point.name}</b> - {point.date}'
-        }
-      }
+      const base = this.basePrep("Version", "red");
 
       base.data = json.map((value, index) =>
         ({
           x: Date.parse(value.date),
           y: 2,
           name: value.name,
-          date: this.formatDate(value.date)
+          date: this.formatDate(value.date),
+          marker: value.highlight ? { radius: 8, symbol: 'diamond' } : {}
         })
       );
 
       this.chartOptions.series.push(base);
     },
 
-    annoPrep(json) {
-      const base = {
-        name: "Major Announcement",
-        color: "blue",
-        marker: { symbol: 'diamond' },
-        tooltip: {
-          pointFormat: '<b>{point.name}</b> - {point.date}'
-        }
-      }
+    otherPrep(json) {
+      const base = this.basePrep("Other", "blue");
 
       base.data = json.map((value, index) =>
         ({
