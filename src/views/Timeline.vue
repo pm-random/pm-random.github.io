@@ -108,7 +108,7 @@ export default {
           y: 2,
           name: value.name,
           date: this.formatDate(value.date),
-          marker: value.highlight ? { radius: 8, symbol: 'diamond' } : {}
+          marker: value.highlight ? { radius: 7, symbol: 'diamond' } : {}
         })
       );
 
