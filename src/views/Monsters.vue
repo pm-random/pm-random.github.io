@@ -14,7 +14,7 @@
 
 
 <script>
-import { JSONFetch, GAME_VERSION } from "@/data.js";
+import { JSONFetch } from "@/data.js";
 import HeaderBar from "@/components/HeaderBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
 import { useHead } from '@vueuse/head';

@@ -27,7 +27,7 @@
 
 
 <script>
-import { DATA_URL, JSONFetch } from "@/data.js";
+import { JSONFetch } from "@/data.js";
 import HeaderBar from "@/components/HeaderBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
 import { useHead } from '@vueuse/head';

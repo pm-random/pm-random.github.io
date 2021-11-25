@@ -12,7 +12,7 @@
 
 
 <script>
-import { DATA_URL, GAME_VERSION } from "@/data.js";
+import { GAME_VERSION } from "@/data.js";
 import { useHead } from '@vueuse/head';
 
 export default {
