@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link :to="'/'">
-      <img src="/favicon.ico">
+      <img v-if="new Date() < new Date('2021-11-29')" src="/rival2.png">
+      <img v-else src="/favicon.ico">
       <span>PM Random<sup>{{ version }}</sup></span>
     </router-link>
     <a id="github" href="https://github.com/pm-random">
