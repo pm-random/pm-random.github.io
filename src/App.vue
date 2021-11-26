@@ -5,8 +5,9 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
-html, body {
+body {
   margin: auto;
+  padding: 12px;
 }
 
 #app {
