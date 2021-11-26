@@ -16,10 +16,6 @@ html, body {
   text-align: center;
 }
 
-#page-content {
-  padding: 4px;
-}
-
 .responsive-x {
   overflow-x: auto;
 }

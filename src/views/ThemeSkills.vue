@@ -1,8 +1,7 @@
 <template>
   <HeaderBar/>
-  <div id="page-content" v-if="this.loaded">  
-    <h1>Theme Skills</h1>
-    <div class="responsive-x">
+  <h1>Theme Skills</h1>
+  <div class="responsive-x">
     <table>
       <thead>
         <tr>
@@ -25,7 +24,6 @@
         </template>
       </tbody>
     </table>
-    </div>
   </div>
 </template>
 

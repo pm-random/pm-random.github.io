@@ -51,7 +51,6 @@ sup {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 10px;
-  margin: 10px;
 }
 
 .item {
