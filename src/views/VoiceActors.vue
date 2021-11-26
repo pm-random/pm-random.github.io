@@ -12,7 +12,7 @@
       <tr v-for="obj in jp">
         <td>{{ obj.name }}</td>
         <td>
-          <img v-for="chara in obj.characters" class="image" :src="chara">
+          <img v-for="chara in obj.characters" class="image" :src="idToImg(chara)" :alt="chara">
         </td>
       </tr>
     </tbody>
@@ -34,20 +34,42 @@ export default {
   },
 
   created() {
-    JSONFetch("voice_actors_jp").then(json => {
-      json.forEach(group => group.characters = group.characters.map(this.idToImg));
-      this.jp = json;
-    });
+    const exceptions = new Set([
+      "ch0065_00_professor",
+      "ch0093_00_staff_center",
+      "ch0103_00_staff_shop",
+      "ch0104_00_staff_cafe"
+    ]);
+
+    JSONFetch("voice_actors_jp").then(json => this.jp = json);
   },
 
   data() {
     return {
-      jp: []
+      jp: [],
+      exceptions: new Set([
+        "ch0065_00_professor",
+        "ch0093_00_staff_center",
+        "ch0103_00_staff_shop",
+        "ch0104_00_staff_cafe"
+      ])
     }
   },
 
   methods: {
-    idToImg: id => `${DATA_URL}/images/characters/va/${id}_256.ktx.png`
+    idToImg(id) {
+      if (!this.exceptions.has(id)) {
+        return `${DATA_URL}/images/characters/va/${id}_256.ktx.png`;
+      } else if (id === "ch0065_00_professor") {
+        return `${DATA_URL}/images/characters/renders/professor-bellis.png`
+      } else if (id === "ch0093_00_staff_center") {
+        return `${DATA_URL}/images/characters/renders/trista.png`
+      } else if (id === "ch0103_00_staff_shop") {
+        return `${DATA_URL}/images/characters/renders/tricia.png`
+      } else if (id === "ch0104_00_staff_cafe") {
+        return `${DATA_URL}/images/characters/renders/trinnia.png`
+      }
+    }
   }
 }
 </script>
