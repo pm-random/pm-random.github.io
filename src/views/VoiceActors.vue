@@ -62,15 +62,15 @@ export default {
   methods: {
     idToImg(id) {
       if (!this.exceptions.has(id)) {
-        return `${DATA_URL}/images/characters/va/${id}_256.ktx.png`;
+        return `${DATA_URL}/images/characters/256/${id}_256.ktx.png`;
       } else if (id === "ch0065_00_professor") {
-        return `${DATA_URL}/images/characters/renders/professor-bellis.png`
+        return `${DATA_URL}/images/characters/render/professor-bellis.png`
       } else if (id === "ch0093_00_staff_center") {
-        return `${DATA_URL}/images/characters/renders/trista.png`
+        return `${DATA_URL}/images/characters/render/trista.png`
       } else if (id === "ch0103_00_staff_shop") {
-        return `${DATA_URL}/images/characters/renders/tricia.png`
+        return `${DATA_URL}/images/characters/render/tricia.png`
       } else if (id === "ch0104_00_staff_cafe") {
-        return `${DATA_URL}/images/characters/renders/trinnia.png`
+        return `${DATA_URL}/images/characters/render/trinnia.png`
       }
     }
   }
