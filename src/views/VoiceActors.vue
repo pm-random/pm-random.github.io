@@ -9,10 +9,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="obj in jp">
-        <td>{{ obj.name }}</td>
+      <tr v-for="actor in jp">
         <td>
-          <img v-for="chara in obj.characters" class="image" :src="idToImg(chara)" :alt="chara">
+          <p v-if="actor.name_jp">{{ actor.name }}<br><span class="jp">{{ actor.name_jp }}</span></p>
+          <p v-else>{{ actor.name }}</p>
+        </td>
+        <td>
+          <img v-for="chara in actor.characters" class="image" :src="idToImg(chara)" :alt="chara">
         </td>
       </tr>
     </tbody>
@@ -78,5 +81,8 @@ export default {
 <style scoped>
 img {
   max-height: 100px;
+}
+.jp {
+  color: gray;
 }
 </style>
