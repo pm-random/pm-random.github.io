@@ -27,7 +27,7 @@ export default {
         { title: "Pokémon List", image: `images/monsters.png`, link: `/monsters` },
         { title: "Revenue", image: `images/gem.png`, link: `/revenue` },
         { title: "Timeline", image: `images/kana.png`, link: `/timeline` },
-        { title: "Voice Actors (WIP)", image: `images/voice-actors.png`, link: `/voice-actors` },
+        { title: "Voice Actors", image: `images/voice-actors.png`, link: `/voice-actors` },
         { title: "XP", image: `images/manual3.png`, link: `/xp` },
         { title: "Theme Skills", image: `images/skill-sphere.png`, link: `/theme-skills` },
       ]
