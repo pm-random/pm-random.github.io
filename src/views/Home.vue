@@ -23,8 +23,8 @@ export default {
     return {
       version: GAME_VERSION,
       items: [
-        { title: "Non-recruitable characters", image: `images/characters.png`, link: `/characters` },
-        { title: "Pokémon List", image: `images/monsters.png`, link: `/monsters` },
+        { title: "Characters", image: `images/characters.png`, link: `/characters` },
+        { title: "Pokémon", image: `images/monsters.png`, link: `/monsters` },
         { title: "Revenue", image: `images/gem.png`, link: `/revenue` },
         { title: "Timeline", image: `images/kana.png`, link: `/timeline` },
         { title: "Voice Actors", image: `images/voice-actors.png`, link: `/voice-actors` },
