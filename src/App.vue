@@ -5,8 +5,9 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
-html, body {
+body {
   margin: auto;
+  padding: 12px;
 }
 
 #app {
@@ -14,10 +15,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-
-#page-content {
-  padding: 4px;
 }
 
 .responsive-x {
@@ -33,7 +30,7 @@ table {
   margin: auto;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-bottom: 3px solid #aaf;
-  border-radius: 18px 18px 0px 0px;
+  border-radius: 12px 12px 0px 0px;
   overflow: hidden;
 }
 
