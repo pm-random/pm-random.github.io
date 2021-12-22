@@ -15,7 +15,7 @@
           <p v-else>{{ actor.name }}</p>
         </td>
         <td>
-          <img v-for="chara in actor.characters" class="image" :src="idToImg(chara)" :alt="chara">
+          <img v-for="chara in actor.characters" class="image" :src="idToImg(chara.id)" :alt="chara.id">
         </td>
       </tr>
     </tbody>
