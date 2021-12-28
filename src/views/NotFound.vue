@@ -8,11 +8,6 @@
   </div>
 </template>
 
-<style>
-h1 {
-  font-size: 4em;
-}
-</style>
 
 <script>
 import { useHead } from '@vueuse/head';
@@ -23,3 +18,10 @@ export default {
   },
 }
 </script>
+
+
+<style>
+h1 {
+  font-size: 4em;
+}
+</style>

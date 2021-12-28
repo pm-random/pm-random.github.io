@@ -12,6 +12,22 @@
 </template>
 
 
+<script>
+import { JSONFetch } from '@/data'
+
+export default {
+  created() {
+    JSONFetch("version").then(json => this.version = json);
+  },
+  data() {
+    return {
+      version: null
+    }
+  }
+}
+</script>
+
+
 <style scoped>
 nav {
   background-color: #f1f1f1;
@@ -44,19 +60,3 @@ a {
   text-decoration: none;
 }
 </style>
-
-
-<script>
-import { JSONFetch } from '@/data'
-
-export default {
-  created() {
-    JSONFetch("version").then(json => this.version = json);
-  },
-  data() {
-    return {
-      version: null
-    }
-  }
-}
-</script>

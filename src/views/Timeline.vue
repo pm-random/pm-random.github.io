@@ -4,6 +4,7 @@
   <highcharts :options="chartOptions"></highcharts>
 </template>
 
+
 <script>
 import { useHead } from '@vueuse/head';
 import HeaderBar from "@/components/HeaderBar"

@@ -27,6 +27,7 @@
   </div>
 </template>
 
+
 <script>
 import { JSONFetch } from "../data.js";
 import HeaderBar from '@/components/HeaderBar.vue'
@@ -59,6 +60,7 @@ export default {
   },
 }
 </script>
+
 
 <style>
 .trainer-name {
