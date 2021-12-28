@@ -1,0 +1,21 @@
+name: npm-build
+on:
+  push:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: build
+    steps:
+    - uses: actions/checkout@v2
+    - id: step1
+      run: |
+        npm ci
+        npm run build
+        cd dist
+        git init --initial-branch gh-pages
+        git config user.name 'npm-builder [bot]'
+        git config user.email 'npm-builder@github.com'
+        git add -A
+        git commit -m 'build'
+        git push -f https://pm-random:${{ secrets.GITHUB_TOKEN }}@github.com/pm-random/pm-random.github.io.git
