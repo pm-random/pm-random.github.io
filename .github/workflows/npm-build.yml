@@ -2,9 +2,15 @@ name: npm-build
 on:
   push:
     branches: main
+defaults:
+  run:
+    shell: bash
 env:
   USER: 'pm-random'
   REPO: 'pm-random.github.io'
+  NAME: 'npm-builder'
+  BRANCH: 'gh-pages'
+  MESSAGE: 'build'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,12 +21,13 @@ jobs:
       run: npm ci
     - name: Build
       run: npm run build
-    - name: Push to gh-pages
+    - name: Create local repository
       run: |
         cd dist
-        git init --initial-branch gh-pages
-        git config user.name 'npm-builder [bot]'
-        git config user.email 'npm-builder@github.com'
+        git init --initial-branch "$BRANCH"
+        git config user.name "$NAME[bot]"
+        git config user.email "$NAME@github.com"
         git add -A
-        git commit -m 'build'
-        git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git"
+        git commit -m "$MESSAGE"
+    - name: Push build to origin
+      run: git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git"
