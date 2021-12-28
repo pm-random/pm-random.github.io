@@ -44,7 +44,7 @@ img {
 
 span {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 30px;
+  font-size: 28px;
   color: black;
   vertical-align: middle;
   padding: 6px;
