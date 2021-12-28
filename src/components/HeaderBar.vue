@@ -47,12 +47,15 @@ a {
 
 
 <script>
-import { GAME_VERSION } from "@/data.js";
+import { JSONFetch } from '@/data'
 
 export default {
+  created() {
+    JSONFetch("version").then(json => this.version = json);
+  },
   data() {
     return {
-      version: GAME_VERSION
+      version: null
     }
   }
 }

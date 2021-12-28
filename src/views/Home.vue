@@ -1,27 +1,32 @@
 <template>
-  <h1>PM Random<sup>{{ version }}</sup></h1>
-  <div id="grid">
-    <template v-for="item in items">
-      <router-link class="item" :to="item.link">
-        <img class="item-image" :src="item.image">
-        <div class="item-title">{{ item.title }}</div>
-      </router-link>
-    </template>
-  </div>
+  <template v-if="version">  
+    <h1>PM Random<sup>{{ version }}</sup></h1>
+    <div id="grid">
+      <template v-for="item in items">
+        <router-link class="item" :to="item.link">
+          <img class="item-image" :src="item.image">
+          <div class="item-title">{{ item.title }}</div>
+        </router-link>
+      </template>
+    </div>
+  </template>
 </template>
 
 
 <script>
-import { GAME_VERSION } from "@/data.js";
 import { useHead } from '@vueuse/head';
+import { JSONFetch } from '@/data'
 
 export default {
+  created() {
+    JSONFetch("version").then(json => this.version = json);
+  },
   setup() {
     useHead({ title: "PM Random" })
   },
   data() {
     return {
-      version: GAME_VERSION,
+      version: null,
       items: [
         { title: "Characters", image: `images/characters.png`, link: `/characters` },
         { title: "Pokémon", image: `images/monsters.png`, link: `/monsters` },
