@@ -8,7 +8,6 @@ defaults:
 env:
   USER: 'pm-random'
   REPO: 'pm-random.github.io'
-  NAME: 'npm-builder'
   BRANCH: 'gh-pages'
   MESSAGE: 'build'
 jobs:
@@ -25,8 +24,8 @@ jobs:
       run: |
         cd dist
         git init --initial-branch "$BRANCH"
-        git config user.name "$NAME[bot]"
-        git config user.email "$NAME@github.com"
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
         git add -A
         git commit -m "$MESSAGE"
     - name: Push build to origin
