@@ -52,7 +52,7 @@ span {
 
 sup {
   font-size: 20px;
-  color: blue;
+  color: var(--accent-color);
 }
 
 a {

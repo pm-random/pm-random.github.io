@@ -49,7 +49,7 @@ h1 {
 }
 
 sup {
-  color: blue;
+  color: var(--accent-color);
 }
 
 #grid {
