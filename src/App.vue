@@ -55,6 +55,5 @@ tr td {
 
 td img {
   vertical-align: middle;
-  padding: 1px;
 }
 </style>
