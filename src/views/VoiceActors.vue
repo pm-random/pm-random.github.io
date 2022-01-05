@@ -40,13 +40,6 @@ export default {
   },
 
   created() {
-    const exceptions = new Set([
-      "ch0065_00_professor",
-      "ch0093_00_staff_center",
-      "ch0103_00_staff_shop",
-      "ch0104_00_staff_cafe"
-    ]);
-
     JSONFetch("voice_actors_jp").then(json => this.jp = json);
   },
 
