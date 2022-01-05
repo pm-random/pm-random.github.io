@@ -80,7 +80,7 @@ export default {
 
 <style scoped>
 img {
-  max-height: 100px;
+  max-height: 90px;
 }
 .jp {
   color: gray;
