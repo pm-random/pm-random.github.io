@@ -80,14 +80,14 @@ img {
 }
 
 .actor {
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .actor-name {
   background-color: #f1f1f1;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
 }
 
 .actor-name-jp {
