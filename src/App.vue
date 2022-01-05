@@ -7,7 +7,7 @@
 
 body {
   margin: auto;
-  padding: 12px;
+  padding: 8px;
 }
 
 #app {
