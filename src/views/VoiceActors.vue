@@ -1,28 +1,23 @@
 <template>
   <HeaderBar/>
   <h1>Voice Actors</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Character(s)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="actor in jp">
-        <td>
-          <p v-if="actor.name_jp">{{ actor.name }}<br><span class="jp">{{ actor.name_jp }}</span></p>
-          <p v-else>{{ actor.name }}</p>
-        </td>
-        <td>
-          <figure v-for="character in actor.characters" class="chara">
-            <img :src="idToImageUrl(character.id)" :alt="character.id">
-            <figcaption class="caption">{{ character.name }}</figcaption>
-          </figure>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div id="grid">
+    <div v-for="actor in jp" class="actor">
+      <div class="actor-name">
+        <div v-if="actor.name_jp">
+          {{ actor.name }}<br>
+          <div class="actor-name-jp">{{ actor.name_jp }}</div>
+        </div>
+        <div v-else>{{ actor.name }}</div>
+      </div>
+      <div class="characters">
+        <figure v-for="character in actor.characters" class="character">
+          <img :src="idToImageUrl(character.id)" :alt="character.id">
+          <figcaption>{{ character.name }}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -66,14 +61,48 @@ export default {
 </script>
 
 
+<style>
+:root {
+  --img-size: 90px;
+}
+</style>
+
 <style scoped>
 img {
-  max-height: 90px;
+  height: var(--img-size);
+  min-height: var(--img-size);
 }
-.jp {
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 4px;
+}
+
+.actor {
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.actor-name {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid gray;
+}
+
+.actor-name-jp {
   color: gray;
 }
-.chara {
+
+.characters {
+  --space: 3px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--img-size), 1fr));
+  grid-gap: var(--space);
+  padding: var(--space);
+}
+
+.character {
   margin: 0px;
 }
 </style>
