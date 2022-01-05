@@ -16,7 +16,7 @@
         </td>
         <td>
           <figure v-for="character in actor.characters" class="chara">
-            <img :src="idToImg(character.id)" :alt="character.id">
+            <img :src="idToImageUrl(character.id)" :alt="character.id">
             <figcaption class="caption">{{ character.name }}</figcaption>
           </figure>
         </td>
@@ -46,28 +46,20 @@ export default {
   data() {
     return {
       jp: [],
-      exceptions: new Set([
-        "ch0065_00_professor",
-        "ch0093_00_staff_center",
-        "ch0103_00_staff_shop",
-        "ch0104_00_staff_cafe"
+      exceptions: new Map([
+        ["ch0065_00_professor", "render/professor-bellis.png"],
+        ["ch0093_00_staff_center", "render/trista.png"],
+        ["ch0103_00_staff_shop", "render/tricia.png"],
+        ["ch0104_00_staff_cafe", "render/trinnia.png"]
       ])
     }
   },
 
   methods: {
-    idToImg(id) {
-      if (!this.exceptions.has(id)) {
+    idToImageUrl(id) {
+      if (!this.exceptions.has(id))
         return `${DATA_URL}/images/characters/256/${id}_256.ktx.png`;
-      } else if (id === "ch0065_00_professor") {
-        return `${DATA_URL}/images/characters/render/professor-bellis.png`
-      } else if (id === "ch0093_00_staff_center") {
-        return `${DATA_URL}/images/characters/render/trista.png`
-      } else if (id === "ch0103_00_staff_shop") {
-        return `${DATA_URL}/images/characters/render/tricia.png`
-      } else if (id === "ch0104_00_staff_cafe") {
-        return `${DATA_URL}/images/characters/render/trinnia.png`
-      }
+      return `${DATA_URL}/images/characters/${this.exceptions.get(id)}`;
     }
   }
 }
