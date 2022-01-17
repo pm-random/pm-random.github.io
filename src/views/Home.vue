@@ -1,26 +1,22 @@
 <template>
-  <template v-if="version">  
-    <h1>PM Random<sup>{{ version }}</sup></h1>
-    <div id="grid">
-      <template v-for="item in items">
-        <router-link class="item" :to="item.link">
-          <img class="item-image" :src="item.image">
-          <div class="item-title">{{ item.title }}</div>
-        </router-link>
-      </template>
-    </div>
-  </template>
+  <div id="nv-wrapper">
+    <NameAndVersion home/>
+  </div>
+  <div id="grid">
+    <router-link class="item" :to="item.link" v-for="item in items">
+      <img class="item-image" :src="item.image">
+      <div class="item-title">{{ item.title }}</div>
+    </router-link>
+  </div>
 </template>
 
 
 <script>
 import { useHead } from '@vueuse/head';
-import { JSONFetch } from '@/data'
+import NameAndVersion from '@/components/NameAndVersion';
 
 export default {
-  created() {
-    JSONFetch("version").then(json => this.version = json);
-  },
+  components: { NameAndVersion },
   setup() {
     useHead({ title: "PM Random" })
   },
@@ -43,13 +39,8 @@ export default {
 
 
 <style scoped>
-h1 {
-  font-size: 3em;
-  color: black;
-}
-
-sup {
-  color: var(--accent-color);
+#nv-wrapper {
+  padding: 30px;
 }
 
 #grid {
