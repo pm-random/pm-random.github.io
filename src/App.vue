@@ -4,6 +4,7 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 body {
   margin: auto;
@@ -19,13 +20,15 @@ body {
   text-align: center;
 }
 
+h1, h2, h3 {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/*
 .responsive-x {
   overflow-x: auto;
 }
 
-h1, h2, h3 {
-  font-family: 'Rajdhani', sans-serif;
-}
 
 table {
   border-collapse: collapse;
@@ -58,4 +61,5 @@ tr td {
 td img {
   vertical-align: middle;
 }
+*/
 </style>
