@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar/>
+  <TopBar/>
   <h1>Revenue</h1>
   <h2>Sensor Tower data (Worldwide)</h2>
   <highcharts :options="chartOptions"></highcharts>
@@ -8,12 +8,12 @@
 
 <script>
 import { useHead } from '@vueuse/head';
-import HeaderBar from "@/components/HeaderBar"
+import TopBar from "@/components/TopBar"
 import { JSONFetch } from '@/data.js';
 
 
 export default {
-  components: { HeaderBar },
+  components: { TopBar },
 
   setup() {
     useHead({ title: "Revenue | PM Random" })

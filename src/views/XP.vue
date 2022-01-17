@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar/>
+  <TopBar/>
   <h1>XP</h1>
   <highcharts :options="chartOptions"></highcharts>
 </template>
@@ -7,12 +7,12 @@
 
 <script>
 import { useHead } from '@vueuse/head';
-import HeaderBar from "@/components/HeaderBar"
+import TopBar from "@/components/TopBar"
 import { JSONFetch } from '@/data.js';
 
 
 export default {
-  components: { HeaderBar },
+  components: { TopBar },
 
   setup() {
     useHead({ title: "XP | PM Random" });

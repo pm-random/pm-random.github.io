@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar/>
+  <TopBar/>
   <h1>Pokémon</h1>
   <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
   <template v-if="current !== null">
@@ -13,13 +13,13 @@
 
 <script>
 import { JSONFetch } from "@/data.js";
-import HeaderBar from "@/components/HeaderBar"
+import TopBar from "@/components/TopBar"
 import HintedCharacterTable from "@/components/HintedCharacterTable"
 import { useHead } from '@vueuse/head';
 
 
 export default {
-  components: { HeaderBar, HintedCharacterTable },
+  components: { TopBar, HintedCharacterTable },
 
   setup() {
     useHead({ title: "Pokémon | PM Random" })

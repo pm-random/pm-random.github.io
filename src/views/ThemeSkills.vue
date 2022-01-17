@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar/>
+  <TopBar/>
   <h1>Theme Skills</h1>
   <div class="responsive-x">
     <table>
@@ -30,11 +30,11 @@
 
 <script>
 import { JSONFetch } from "../data.js";
-import HeaderBar from '@/components/HeaderBar.vue'
+import TopBar from '@/components/TopBar.vue'
 import { useHead } from '@vueuse/head';
 
 export default {
-  components: { HeaderBar },
+  components: { TopBar },
 
   setup() {
     useHead({ title: "Theme Skills | PM Random" })

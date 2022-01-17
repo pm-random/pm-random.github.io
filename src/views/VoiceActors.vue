@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar/>
+  <TopBar/>
   <h1>Voice Actors</h1>
   <div id="grid">
     <div v-for="actor in jp" class="actor">
@@ -23,12 +23,12 @@
 
 <script>
 import { DATA_URL, JSONFetch } from "@/data.js";
-import HeaderBar from "@/components/HeaderBar"
+import TopBar from "@/components/TopBar"
 import { useHead } from '@vueuse/head';
 
 
 export default {
-  components: { HeaderBar },
+  components: { TopBar },
 
   setup() {
     useHead({ title: "Voice Actors | PM Random" })
