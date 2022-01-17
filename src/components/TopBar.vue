@@ -2,7 +2,7 @@
   <nav>
     <router-link :to="'/'">
       <img src="/favicon.ico">
-      <span>PM Random<sup>{{ version }}</sup></span>
+      <NameAndVersion/>
     </router-link>
     <a id="github" href="https://github.com/pm-random">
       <img src="images/github.svg">    
@@ -12,12 +12,10 @@
 
 
 <script>
-import { JSONFetch } from '@/data'
+import NameAndVersion from '@/components/NameAndVersion';
 
 export default {
-  created() {
-    JSONFetch("version").then(json => this.version = json);
-  },
+  components: { NameAndVersion },
   data() {
     return {
       version: null
@@ -42,18 +40,6 @@ img {
   vertical-align: middle;
 }
 
-span {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 28px;
-  color: black;
-  vertical-align: middle;
-  padding: 6px;
-}
-
-sup {
-  font-size: 20px;
-  color: var(--accent-color);
-}
 
 a {
   text-decoration: none;
