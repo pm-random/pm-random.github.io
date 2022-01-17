@@ -12,7 +12,7 @@ body {
 }
 
 #app {
-  --accent-color: blue;
+  --accent-color: #be1a39;
 
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
