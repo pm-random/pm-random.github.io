@@ -68,8 +68,4 @@ nav {
 img {
   height: 40px;
 }
-
-a {
-  text-decoration: none;
-}
 </style>
