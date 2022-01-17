@@ -32,7 +32,7 @@
         <hr class="d-lg-none text-gray">
 
         <a href="https://github.com/pm-random">
-          <button class="btn btn-outline-primary" href="https://github.com/pm-random">View on Github</button>
+          <img src="images/github.svg">
         </a>
       </div>
     </div>
