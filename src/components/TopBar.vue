@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light navbar-expand-md">
+  <nav class="navbar navbar-light navbar-expand-lg">
     <div class="container-fluid">
       <router-link :to="'/'" class="navbar-brand">
         <img src="/favicon.ico">
@@ -11,11 +11,22 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav me-auto">
-          <router-link :to="'/characters'" class="nav-link">Characters</router-link>
-          <router-link :to="'/monsters'" class="nav-link">Pokémon</router-link>
-          <router-link :to="'/revenue'" class="nav-link">Revenue</router-link>
-          <router-link :to="'/voice-actors'" class="nav-link">VA</router-link>
+        <div class="navbar-nav me-auto flex-row flex-wrap bd-navbar-nav">
+          <router-link :to="'/characters'" class="nav-link col-6 col-lg-auto">Characters</router-link>
+          <router-link :to="'/monsters'" class="nav-link col-6 col-lg-auto">Pokémon</router-link>
+          <router-link :to="'/revenue'" class="nav-link col-6 col-lg-auto">Revenue</router-link>
+          <router-link :to="'/voice-actors'" class="nav-link col-6 col-lg-auto">VA</router-link>
+          <router-link :to="'/timeline'" class="nav-link col-6 col-lg-auto">Timeline</router-link>
+
+          <li class="nav-item dropdown col-12 col-lg-auto">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+            More
+            </a>
+            <div class="dropdown-menu">
+              <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
+              <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
+            </div>
+          </li>
         </div>
 
         <a href="https://github.com/pm-random">
