@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light navbar-expand-lg">
+  <nav class="navbar navbar-light navbar-expand-md">
     <div class="container-fluid">
       <router-link :to="'/'" class="navbar-brand">
         <img src="/favicon.ico">
@@ -12,24 +12,24 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav me-auto flex-row flex-wrap bd-navbar-nav">
-          <router-link :to="'/characters'" class="nav-link col-6 col-lg-auto">Characters</router-link>
-          <router-link :to="'/monsters'" class="nav-link col-6 col-lg-auto">Pokémon</router-link>
-          <router-link :to="'/revenue'" class="nav-link col-6 col-lg-auto">Revenue</router-link>
-          <router-link :to="'/voice-actors'" class="nav-link col-6 col-lg-auto">VA</router-link>
-          <router-link :to="'/timeline'" class="nav-link col-6 col-lg-auto">Timeline</router-link>
+          <router-link :to="'/characters'" class="nav-link col-6 col-md-auto">Characters</router-link>
+          <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto">Pokémon</router-link>
+          <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
+          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">VA</router-link>
 
-          <li class="nav-item dropdown col-12 col-lg-auto">
+          <li class="nav-item dropdown col-12 col-md-auto">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
             More
             </a>
             <div class="dropdown-menu">
+              <router-link :to="'/timeline'" class="dropdown-item">Timeline</router-link>
               <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
               <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
             </div>
           </li>
         </div>
 
-        <hr class="d-lg-none text-gray">
+        <hr class="d-md-none text-gray">
 
         <a href="https://github.com/pm-random">
           <img src="images/github.svg">
