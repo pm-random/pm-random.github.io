@@ -18,9 +18,9 @@
           <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">VA</router-link>
 
           <div class="nav-item dropdown col-12 col-md-auto">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
-            More
-            </a>
+            <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+              More
+            </div>
             <div class="dropdown-menu">
               <router-link :to="'/timeline'" class="dropdown-item">Timeline</router-link>
               <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
