@@ -39,8 +39,11 @@ export default {
       chartOptions: {
         chart: {
           type: 'spline',
-          zoomType: 'x',
-          numberFormatter: (value) => `$${value}M`
+          numberFormatter: (value) => `$${value}M`,
+          scrollablePlotArea: {
+            minWidth: 750,
+            scrollPositionX: 1
+          }
         },
         title: null,
         credits: { enabled: false },
