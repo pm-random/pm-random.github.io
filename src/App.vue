@@ -9,6 +9,7 @@
 
 #app {
   --accent-color: #be1a39;
+  --chara-icon-size: 85px;
 
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

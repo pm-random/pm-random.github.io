@@ -63,16 +63,10 @@ export default {
 </script>
 
 
-<style>
-:root {
-  --img-size: 90px;
-}
-</style>
-
 <style scoped>
 img {
-  height: var(--img-size);
-  min-height: var(--img-size);
+  height: var(--chara-icon-size);
+  min-height: var(--chara-icon-size);
 }
 
 #grid {
@@ -99,7 +93,7 @@ img {
 .characters {
   --space: 3px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--img-size), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--chara-icon-size), 1fr));
   grid-gap: var(--space);
   padding: var(--space);
 }

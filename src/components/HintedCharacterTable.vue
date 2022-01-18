@@ -94,6 +94,6 @@ export default {
 }
 
 .image {
-  max-height: 100px;
+  max-height: var(--chara-icon-size);
 }
 </style>
