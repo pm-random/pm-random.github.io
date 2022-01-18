@@ -58,6 +58,7 @@ export default {
 .navbar-brand {
   display: inline-flex;
   gap: 6px;
+  padding: 0px;
 }
 
 nav {
