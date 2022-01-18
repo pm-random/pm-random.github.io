@@ -25,6 +25,18 @@ h1, h2, h3 {
   font-family: 'Rajdhani', sans-serif;
 }
 
+tr {
+  vertical-align: middle;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 /*
 .responsive-x {
   overflow-x: auto;
@@ -44,14 +56,6 @@ th {
   padding: 10px;
   background-color: #ccf;
   color: black;
-}
-
-tbody tr:nth-child(odd) {
-  background-color: white;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
 }
 
 tr td {

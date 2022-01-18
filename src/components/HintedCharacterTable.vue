@@ -1,36 +1,36 @@
 <template>
   <h2 v-html="cat.title"></h2>
-  <div class="responsive-x">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th v-if="cat.hasImages">Image</th>
-        <th v-if="cat.hasNotes">Notes</th>
-        <th v-if="cat.hasSince">Since</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="character in cat.characters">
-        <td>{{ character.name }}</td>
-        <td v-if="cat.hasImages">
-          <p v-if="character.images === undefined" class="dash">&mdash;</p>
-          <a v-for="image in character.images" :href="image">
-            <img class="image" :src="image">
-          </a>
-        </td>
-        <template v-if="cat.hasNotes">
-          <td v-if="character.notes === undefined" class="dash">&mdash;</td>
-          <td v-else v-html="character.notes.join('<br>')"></td>
-        </template>
-        <template v-if="cat.hasSince">
-          <td v-if="character.since === undefined">???</td>
-          <td v-else-if="character.days === 1">{{ character.since }} ({{ character.days }} day)</td>
-          <td v-else>{{ character.since }} ({{ character.days }} days)</td>
-        </template>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th v-if="cat.hasImages">Image</th>
+          <th v-if="cat.hasNotes">Notes</th>
+          <th v-if="cat.hasSince">Since</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="character in cat.characters">
+          <td>{{ character.name }}</td>
+          <td v-if="cat.hasImages">
+            <p v-if="character.images === undefined" class="dash">&mdash;</p>
+            <a v-for="image in character.images" :href="image">
+              <img class="image" :src="image">
+            </a>
+          </td>
+          <template v-if="cat.hasNotes">
+            <td v-if="character.notes === undefined" class="dash">&mdash;</td>
+            <td v-else v-html="character.notes.join('<br>')"></td>
+          </template>
+          <template v-if="cat.hasSince">
+            <td v-if="character.since === undefined">???</td>
+            <td v-else-if="character.days === 1">{{ character.since }} ({{ character.days }} day)</td>
+            <td v-else>{{ character.since }} ({{ character.days }} days)</td>
+          </template>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 

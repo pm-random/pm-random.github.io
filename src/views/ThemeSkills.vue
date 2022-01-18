@@ -2,8 +2,8 @@
   <TopBar/>
   <div class="page-content">
     <h1>Theme Skills</h1>
-    <div class="responsive-x">
-      <table>
+    <div class="table-responsive">
+      <table class="table">
         <thead>
           <tr>
             <th>Character</th>
