@@ -19,8 +19,8 @@ export default {
   computed: {
     style() {
       return {
-        "--name-size": `${this.home ? 48 : 28}px`,
-        "--version-size": `${this.home ? 36 : 20}px`
+        "--name-size": `${this.home ? 48 : 26}px`,
+        "--version-size": `${this.home ? 36 : 18}px`
       }
     }
   },
