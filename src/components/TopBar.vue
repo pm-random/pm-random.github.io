@@ -15,7 +15,7 @@
           <router-link :to="'/characters'" class="nav-link col-6 col-md-auto">Characters</router-link>
           <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto">Pokémon</router-link>
           <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
-          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">VA</router-link>
+          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">Voice Actors</router-link>
 
           <div class="nav-item dropdown col-12 col-md-auto">
             <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
