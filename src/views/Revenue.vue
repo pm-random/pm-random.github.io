@@ -2,7 +2,6 @@
   <TopBar/>
   <div class="page-content">
     <h1>Revenue</h1>
-    <h2>Sensor Tower data (Worldwide)</h2>
     <highcharts :options="chartOptions"></highcharts>
   </div>
 </template>
@@ -45,7 +44,7 @@ export default {
             scrollPositionX: 1
           }
         },
-        title: null,
+        title: { text: "Sensor Tower data (Worldwide)" },
         credits: { enabled: false },
         xAxis: {
           type: 'datetime',
