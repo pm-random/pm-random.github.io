@@ -1,7 +1,9 @@
 <template>
   <TopBar/>
-  <h1>Timeline</h1>
-  <highcharts :options="chartOptions"></highcharts>
+  <div class="page-content">  
+    <h1>Timeline</h1>
+    <highcharts :options="chartOptions"></highcharts>
+  </div>
 </template>
 
 

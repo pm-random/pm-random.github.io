@@ -1,26 +1,28 @@
 <template>
   <TopBar/>
-  <h1>Characters</h1>
-  <HintedCharacterTable v-for="category in present" :key="category" :category="category"/>
-  <template v-if="absent !== null">
-    <h2>No information so far</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Game</th>
-          <th>Count</th>
-          <th>Characters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="game in absent">
-          <td>{{ game.name }}</td>
-          <td>{{ game.characters.length }}</td>
-          <td>{{ game.characters.sort().join(", ") }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </template>
+  <div class="page-content">  
+    <h1>Characters</h1>
+    <HintedCharacterTable v-for="category in present" :key="category" :category="category"/>
+    <template v-if="absent !== null">
+      <h2>No information so far</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>Count</th>
+            <th>Characters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="game in absent">
+            <td>{{ game.name }}</td>
+            <td>{{ game.characters.length }}</td>
+            <td>{{ game.characters.sort().join(", ") }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+  </div>
 </template>
 
 

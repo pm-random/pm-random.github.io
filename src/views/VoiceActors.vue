@@ -1,20 +1,22 @@
 <template>
   <TopBar/>
-  <h1>Voice Actors</h1>
-  <div id="grid">
-    <div v-for="actor in jp" class="actor">
-      <div class="actor-name">
-        <div v-if="actor.name_jp">
-          {{ actor.name }}<br>
-          <div class="actor-name-jp">{{ actor.name_jp }}</div>
+  <div class="page-content">
+    <h1>Voice Actors</h1>
+    <div id="grid">
+      <div v-for="actor in jp" class="actor">
+        <div class="actor-name">
+          <div v-if="actor.name_jp">
+            {{ actor.name }}<br>
+            <div class="actor-name-jp">{{ actor.name_jp }}</div>
+          </div>
+          <div v-else>{{ actor.name }}</div>
         </div>
-        <div v-else>{{ actor.name }}</div>
-      </div>
-      <div class="characters">
-        <figure v-for="character in actor.characters" class="character">
-          <img :src="idToImageUrl(character.id)" :alt="character.id">
-          <figcaption>{{ character.name }}</figcaption>
-        </figure>
+        <div class="characters">
+          <figure v-for="character in actor.characters" class="character">
+            <img :src="idToImageUrl(character.id)" :alt="character.id">
+            <figcaption>{{ character.name }}</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <div id="nv-wrapper">
     <NameAndVersion home/>
   </div>
-  <div id="grid">
+  <div id="grid" class="page-content">
     <router-link class="item" :to="item.link" v-for="item in items">
       <img class="item-image" :src="item.image">
       <div class="item-title">{{ item.title }}</div>

@@ -1,8 +1,10 @@
 <template>
   <TopBar/>
-  <h1>Revenue</h1>
-  <h2>Sensor Tower data (Worldwide)</h2>
-  <highcharts :options="chartOptions"></highcharts>
+  <div class="page-content">
+    <h1>Revenue</h1>
+    <h2>Sensor Tower data (Worldwide)</h2>
+    <highcharts :options="chartOptions"></highcharts>
+  </div>
 </template>
 
 

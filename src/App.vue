@@ -6,10 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-body {
-  margin: auto;
-  padding: 8px;
-}
 
 #app {
   --accent-color: #be1a39;
@@ -18,6 +14,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.page-content {
+  padding: 8px;
 }
 
 h1, h2, h3 {

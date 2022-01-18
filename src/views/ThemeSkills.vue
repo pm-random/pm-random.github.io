@@ -1,29 +1,31 @@
 <template>
   <TopBar/>
-  <h1>Theme Skills</h1>
-  <div class="responsive-x">
-    <table>
-      <thead>
-        <tr>
-          <th>Character</th>
-          <th>Sync Pair</th>
-          <th>Skills</th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="character in characters" :key="character">
+  <div class="page-content">
+    <h1>Theme Skills</h1>
+    <div class="responsive-x">
+      <table>
+        <thead>
           <tr>
-            <td class="trainer-name" :rowspan="character.rest.length + 1">{{ character.name }}</td>
-            <td>{{ character.first[0] }}</td>
-            <td>{{ character.first[1].join(", ") }}</td>
+            <th>Character</th>
+            <th>Sync Pair</th>
+            <th>Skills</th>
           </tr>
-          <tr v-for="[syncpair, skills] of character.rest" :key="syncpair">
-            <td>{{ syncpair }}</td>
-            <td>{{ skills.join(", ") }}</td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <template v-for="character in characters" :key="character">
+            <tr>
+              <td class="trainer-name" :rowspan="character.rest.length + 1">{{ character.name }}</td>
+              <td>{{ character.first[0] }}</td>
+              <td>{{ character.first[1].join(", ") }}</td>
+            </tr>
+            <tr v-for="[syncpair, skills] of character.rest" :key="syncpair">
+              <td>{{ syncpair }}</td>
+              <td>{{ skills.join(", ") }}</td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
