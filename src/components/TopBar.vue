@@ -17,7 +17,7 @@
           <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
           <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">VA</router-link>
 
-          <li class="nav-item dropdown col-12 col-md-auto">
+          <div class="nav-item dropdown col-12 col-md-auto">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
             More
             </a>
@@ -26,7 +26,7 @@
               <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
               <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
             </div>
-          </li>
+          </div>
         </div>
 
         <hr class="d-md-none text-gray">
