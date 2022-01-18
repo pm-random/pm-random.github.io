@@ -36,10 +36,7 @@ export default {
     return {
       rawData: null,
       chartOptions: {
-        chart: {
-          type: "spline",
-          zoomType: 'x'
-        },
+        chart: { type: "spline" },
         title: null,
         credits: { enabled: false },
         xAxis: {
