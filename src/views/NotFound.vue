@@ -2,9 +2,10 @@
   <div>
     <h1>404</h1>
     <img src="/favicon.ico">
-    <p><strong>Page not found :(</strong></p>
-    <p>The requested page could not be found.</p>
-    <router-link to="/">Homepage</router-link>
+    <div id="message" class="padded-div">
+      <div class="padded-div">Page not found :(</div>
+      <router-link to="/">Homepage</router-link>
+    </div>
   </div>
 </template>
 
@@ -20,8 +21,17 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+#message {
+  font-weight: bold;
+}
+
+.padded-div {
+  padding: 8px;
+}
+
 h1 {
   font-size: 4em;
+  margin-bottom: 0px;
 }
 </style>
