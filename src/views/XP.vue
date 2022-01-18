@@ -46,7 +46,7 @@ export default {
           }
         },
         yAxis: {
-          title: { text: "Experience" },
+          title: null,
           labels: {
             style: { fontSize: "12px" }
           }
