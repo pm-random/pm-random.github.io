@@ -22,7 +22,6 @@
               More
             </div>
             <div class="dropdown-menu">
-              <router-link :to="'/timeline'" class="dropdown-item">Timeline</router-link>
               <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
               <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
             </div>

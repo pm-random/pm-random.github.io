@@ -5,9 +5,6 @@
     <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
     <template v-if="current !== null">
       <h2>Current version</h2>
-      <div id="grid" class="responsive-x">
-        <div class="grid-item" v-for="monster in current">{{ monster }}</div>
-      </div>
     </template>
   </div>
 </template>
@@ -29,7 +26,7 @@ export default {
 
   created() {
     JSONFetch("monsters_hinted").then(json => this.hinted = json);
-    JSONFetch("monsters").then(json => this.current = json["monsters"]);
+    //JSONFetch("monsters").then(json => this.current = json["monsters"]);
   },
 
   data() {
