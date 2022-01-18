@@ -17,7 +17,7 @@
 }
 
 .page-content {
-  padding: 8px;
+  padding: 16px;
 }
 
 h1, h2, h3 {
