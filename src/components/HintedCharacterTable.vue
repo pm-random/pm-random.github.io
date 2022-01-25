@@ -16,7 +16,7 @@
           <td v-if="cat.hasImages">
             <p v-if="character.images === undefined" class="dash">&mdash;</p>
             <a v-for="image in character.images" :href="image">
-              <img class="image" :src="image">
+              <img class="image img-thumbnail" :src="image">
             </a>
           </td>
           <template v-if="cat.hasNotes">
