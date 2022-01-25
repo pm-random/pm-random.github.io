@@ -26,14 +26,6 @@ h1, h2, h3 {
   font-family: 'Rajdhani', sans-serif;
 }
 
-h1 {
-  margin: 22px 0 22px 0 !important;
-}
-
-h2 {
-  margin: 20px 0 20px 0 !important;
-}
-
 tr {
   vertical-align: middle;
 }
