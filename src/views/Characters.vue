@@ -6,7 +6,7 @@
     <template v-if="absent !== null">
       <h2>No information so far</h2>
       <div class="table-responsive">        
-        <table class="table">
+        <table class="table table-sm">
           <thead>
             <tr>
               <th>Game</th>
