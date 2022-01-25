@@ -14,7 +14,7 @@
         <tr v-for="character in cat.characters">
           <td>{{ character.name }}</td>
           <td v-if="cat.hasImages">
-            <p v-if="character.images === undefined" class="dash">&mdash;</p>
+            <span v-if="character.images === undefined" class="dash">&mdash;</span>
             <a v-for="image in character.images" :href="image">
               <img class="image img-thumbnail" :src="image">
             </a>
