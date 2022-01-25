@@ -64,14 +64,15 @@ function cleanCharacter(character) {
 }
 
 function cleanCategory(category) {
-  if (category.characters === undefined) {
-    category.characters = category.monsters;
+  const c = JSON.parse(JSON.stringify(category));
+  if (c.characters === undefined) {
+    c.characters = c.monsters;
   }
-  category.characters = category.characters.map(cleanCharacter).sort(compareCharacters);
-  category.hasImages = category.characters.find(x => x.images !== undefined);
-  category.hasNotes = category.characters.find(x => x.notes !== undefined);
-  category.hasSince = category.characters.find(x => x.since !== undefined);
-  return category;
+  c.characters = c.characters.map(cleanCharacter).sort(compareCharacters);
+  c.hasImages = c.characters.find(x => x.images !== undefined);
+  c.hasNotes = c.characters.find(x => x.notes !== undefined);
+  c.hasSince = c.characters.find(x => x.since !== undefined);
+  return c;
 }
 
 export default {
