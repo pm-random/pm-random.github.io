@@ -2,7 +2,7 @@
   <TopBar/>
   <div class="page-content">
     <h1>Pokémon</h1>
-    <HintedCharacterTable v-for="category in hinted" :key="category" :category="category"/>
+    <HintedCharacterTable v-for="category in beta" :key="category" :category="category"/>
     <template v-if="current !== null">
       <h2>Current version</h2>
     </template>
@@ -25,13 +25,13 @@ export default {
   },
 
   created() {
-    JSONFetch("monsters_hinted").then(json => this.hinted = json);
+    JSONFetch("monsters_beta").then(json => this.beta = [{"title": "1.0.0 to 1.1.1", "monsters": json}]);
     //JSONFetch("monsters").then(json => this.current = json["monsters"]);
   },
 
   data() {
     return {
-      hinted: [],
+      beta: [],
       current: null
     }
   }
