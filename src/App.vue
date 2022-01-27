@@ -12,8 +12,6 @@
   --chara-icon-size: 85px;
 
   font-family: Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   font-size: 15px;
 }
