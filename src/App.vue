@@ -2,6 +2,25 @@
   <router-view/>
 </template>
 
+
+<script>
+import { useHead } from '@vueuse/head';
+
+export default {
+  setup() {
+    useHead({
+      title: "PM Random",
+      meta: [
+        {charset: "utf-8"},
+        {name: "description", content: "List of missing characters, and other random stuff about Pokémon Masters"},
+        {name: "viewport", content: "width=device-width"}
+      ]
+    });
+  }
+}
+</script>
+
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 @import '~bootstrap/dist/css/bootstrap.min.css';
