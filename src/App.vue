@@ -12,6 +12,7 @@ useHead({
     {charset: "utf-8"},
     {name: "description", content: "List of missing characters, and other random stuff about Pokémon Masters"},
     {name: "viewport", content: "width=device-width"},
+    {name: "theme-color", content: "#be1a39"}
   ]
 });
 </script>
