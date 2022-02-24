@@ -20,7 +20,8 @@
             </tr>
             <tr v-for="[syncpair, skills] of character.rest" :key="syncpair">
               <td>{{ syncpair }}</td>
-              <td>{{ skills.join(", ") }}</td>
+              <td v-if="skills.length > 0">{{ skills.join(", ") }}</td>
+              <td v-else>&mdash;</td>
             </tr>
           </template>
         </tbody>
