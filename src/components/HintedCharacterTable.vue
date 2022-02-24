@@ -20,7 +20,7 @@
             </a>
           </td>
           <template v-if="cat.hasNotes">
-            <td v-if="character.notes === undefined" class="dash">&mdash;</td>
+            <td v-if="character.notes === undefined">&mdash;</td>
             <td v-else v-html="character.notes.join('<br>')"></td>
           </template>
           <template v-if="cat.hasSince">
@@ -90,10 +90,6 @@ export default {
 
 
 <style scoped>
-.dash {
-  font-weight: bold;
-}
-
 .image {
   max-height: var(--chara-icon-size);
 }
