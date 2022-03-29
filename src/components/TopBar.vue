@@ -2,7 +2,8 @@
   <nav class="navbar navbar-light navbar-expand-md">
     <div class="container-fluid">
       <router-link :to="'/'" class="navbar-brand">
-        <img src="/favicon.ico">
+        <img v-if="showSpecialIcon()" src="images/special-icon.png">
+        <img v-else src="/favicon.ico">
         <NameAndVersion/>
       </router-link>
 
@@ -46,7 +47,13 @@ export default {
   components: { NameAndVersion },
   data() {
     return {
-      version: null
+      version: null,
+    }
+  },
+
+  methods: {
+    showSpecialIcon() {
+      return new Date() < new Date('2022-04-04');
     }
   }
 }
