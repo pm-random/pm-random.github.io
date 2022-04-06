@@ -2,23 +2,33 @@
   <TopBar/>
   <div class="page-content">
     <h1>Voice Actors</h1>
-    <div id="grid">
-      <div v-for="actor in jp" class="actor">
-        <div class="actor-name">
-          <div v-if="actor.name_jp">
-            {{ actor.name }}<br>
-            <div class="actor-name-jp">{{ actor.name_jp }}</div>
-          </div>
-          <div v-else>{{ actor.name }}</div>
-        </div>
-        <div class="characters">
-          <figure v-for="character in actor.characters" class="character">
-            <img :src="idToImageUrl(character.id)" :alt="character.id">
-            <figcaption>{{ character.name }}</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>Voice Actor</th>
+          <th>Characters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="actor in jp" class="actor">
+          <td>
+            <div v-if="actor.name_jp">
+              {{ actor.name }}<br>
+              <div class="actor-name-jp">{{ actor.name_jp }}</div>
+            </div>
+            <div v-else>{{ actor.name }}</div>
+          </td>
+          <td>
+            <div class="row">
+              <figure v-for="character in actor.characters" class="character col m-0">
+                <img :src="idToImageUrl(character.id)" :alt="character.id">
+                <figcaption>{{ character.name }}</figcaption>
+              </figure>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -65,40 +75,11 @@ export default {
 
 <style scoped>
 img {
-  height: var(--chara-icon-size);
-  min-height: var(--chara-icon-size);
-}
-
-#grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  grid-gap: 4px;
-}
-
-.actor {
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.actor-name {
-  background-color: #f1f1f1;
-  border-bottom: 1px solid lightgray;
+  height: 12vw;
+  max-height: 70px;
 }
 
 .actor-name-jp {
   color: gray;
-}
-
-.characters {
-  --space: 3px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--chara-icon-size), 1fr));
-  grid-gap: var(--space);
-  padding: var(--space);
-}
-
-.character {
-  margin: 0px;
 }
 </style>
