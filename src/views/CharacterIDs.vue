@@ -13,7 +13,7 @@
         <tr><td>Scoutable</td></tr>
         <tr class="playable"><td>Playable</td></tr>
         <tr class="npc"><td>NPC or ID-only</td></tr>
-        <tr class="softlaunch"><td>NPC or ID-only (Soft Launch)</td></tr>
+        <tr class="softlaunch"><td>ID-only (Soft Launch)</td></tr>
       </tbody>
     </table>
 
