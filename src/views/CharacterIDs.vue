@@ -12,8 +12,9 @@
       <tbody>
         <tr><td>Scoutable</td></tr>
         <tr class="playable"><td>Playable</td></tr>
-        <tr class="npc"><td>NPC or ID-only</td></tr>
-        <tr class="softlaunch"><td>ID-only (Soft Launch)</td></tr>
+        <tr class="npc"><td>NPC</td></tr>
+        <tr class="id-only"><td>ID-only</td></tr>
+        <tr class="id-only-early"><td>ID-only (1.0.0 to 1.1.1)</td></tr>
       </tbody>
     </table>
 
@@ -96,7 +97,11 @@ export default {
   color: red;
 }
 
-.softlaunch {
-  color: purple;
+.id-only {
+  color: orange;
+}
+
+.id-only-early {
+  color: blueviolet;
 }
 </style>
