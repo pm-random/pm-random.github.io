@@ -21,9 +21,9 @@
     <table class="table table-sm">
       <thead>
         <tr>
-          <th>Number</th>
-          <th>Name</th>
-          <th>Internal Name</th>
+          <th class="col-3">Number</th>
+          <th class="col-3">Name</th>
+          <th class="col-3">Internal Name</th>
         </tr>
       </thead>
       <tbody>
