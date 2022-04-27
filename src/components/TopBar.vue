@@ -54,7 +54,7 @@ export default {
 
   methods: {
     showSpecialIcon() {
-      return new Date() < new Date('2022-04-04');
+      return new Date() < new Date('2022-05-05');
     }
   }
 }
