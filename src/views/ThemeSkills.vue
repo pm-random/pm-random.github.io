@@ -31,37 +31,26 @@
 </template>
 
 
-<script>
-import { JSONFetch } from "../data.js";
-import TopBar from '@/components/TopBar.vue'
+<script setup>
+import { ref } from 'vue';
 import { useHead } from '@vueuse/head';
+import { JSONFetch } from "../data.js";
+import TopBar from '@/components/TopBar.vue';
 
-export default {
-  components: { TopBar },
+useHead({ title: "Theme Skills | PM Random" });
 
-  setup() {
-    useHead({ title: "Theme Skills | PM Random" })
-  },
+const characters = ref([]);
+const loaded = ref(false);
 
-  created() {
-    JSONFetch('team_skills').then(json => {
-      for (const [name, syncpairs] of Object.entries(json)) {
-        let firstKey = Object.keys(syncpairs)[0];
-        let character = {'name': name, 'first': [firstKey, syncpairs[firstKey]]};
-        character.rest = Object.entries(syncpairs).slice(1);
-        this.characters.push(character);
-      }
-      this.loaded = true;
-    });
-  },
-
-  data() {
-    return {
-      characters: [],
-      loaded: false
-    }
-  },
-}
+JSONFetch('team_skills').then(json => {
+  for (const [name, syncpairs] of Object.entries(json)) {
+    let firstKey = Object.keys(syncpairs)[0];
+    let character = {'name': name, 'first': [firstKey, syncpairs[firstKey]]};
+    character.rest = Object.entries(syncpairs).slice(1);
+    characters.value.push(character);
+  }
+  loaded.value = true;
+});
 </script>
 
 

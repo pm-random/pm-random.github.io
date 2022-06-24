@@ -27,7 +27,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="row in rows">
+        <tr v-for="row in rows" v-bind:key="row.number">
           <template v-if="row.number">
             <td :class="row.status">{{ row.number }}</td>
             <td :class="row.status">{{ row.name }}</td>
@@ -41,46 +41,35 @@
 </template>
 
 
-<script>
-import { JSONFetch } from "@/data.js";
-import TopBar from "@/components/TopBar"
+<script setup>
+import { ref } from 'vue';
 import { useHead } from '@vueuse/head';
+import { JSONFetch } from "@/data.js";
+import TopBar from "@/components/TopBar";
+
+useHead({ title: "Character IDs | PM Random" });
 
 
-export default {
-  components: { TopBar },
+const rows = ref();
 
-  setup() {
-    useHead({ title: "Character IDs | PM Random" })
-  },
+JSONFetch("character_ids").then(json => {
+  const map = new Map(json.map(c => [parseInt(c.number), c]));
+  const last_number = json.map(c => parseInt(c.number)).reverse()[0];
+  const tmp = [];
 
-  created() {
-    JSONFetch("character_ids").then(json => {
-      const map = new Map(json.map(c => [parseInt(c.number), c]));
-      const last_number = json.map(c => parseInt(c.number)).reverse()[0];
-      const tmp = [];
-
-      for (var i = 0; i <= last_number; i++) {
-        let chara = map.get(i);
-        if (chara !== undefined) {
-          tmp.push(chara);
-        } else if (Number.isInteger(tmp[tmp.length - 1])) {
-          tmp[tmp.length - 1]++;
-        } else {
-          tmp.push(1);
-        }
-      }
-
-      this.rows = tmp;
-    });
-  },
-
-  data() {
-    return {
-      rows: []
+  for (var i = 0; i <= last_number; i++) {
+    let chara = map.get(i);
+    if (chara !== undefined) {
+      tmp.push(chara);
+    } else if (Number.isInteger(tmp[tmp.length - 1])) {
+      tmp[tmp.length - 1]++;
+    } else {
+      tmp.push(1);
     }
   }
-}
+
+  rows.value = tmp;
+});
 </script>
 
 

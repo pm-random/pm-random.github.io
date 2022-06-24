@@ -15,7 +15,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="game in absent">
+            <tr v-for="game in absent" v-bind:key="game.name">
               <td>{{ game.name }}</td>
               <td>{{ game.characters.length }}</td>
               <td>{{ game.characters.sort().join(", ") }}</td>
@@ -28,30 +28,19 @@
 </template>
 
 
-<script>
-import { JSONFetch } from "@/data.js";
-import TopBar from "@/components/TopBar"
-import HintedCharacterTable from "@/components/HintedCharacterTable"
+<script setup>
+import { ref } from 'vue';
 import { useHead } from '@vueuse/head';
+import { JSONFetch } from "@/data.js";
+import TopBar from "@/components/TopBar";
+import HintedCharacterTable from "@/components/HintedCharacterTable";
+
+useHead({ title: "Characters | PM Random" });
 
 
-export default {
-  components: { TopBar, HintedCharacterTable },
+const present = ref([]);
+const absent = ref(null);
 
-  setup() {
-    useHead({ title: "Characters | PM Random" })
-  },
-
-  created() {
-    JSONFetch("characters_present").then(json => this.present = json);
-    JSONFetch("characters_absent").then(json => this.absent = json.filter(game => game.characters.length > 0));
-  },
-
-  data() {
-    return {
-      present: [],
-      absent: null
-    }
-  }
-}
+JSONFetch("characters_present").then(json => present.value = json);
+JSONFetch("characters_absent").then(json => absent.value = json.filter(game => game.characters.length > 0));
 </script>

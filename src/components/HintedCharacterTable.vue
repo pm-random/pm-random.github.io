@@ -1,29 +1,29 @@
 <template>
-  <h2 v-html="cat.title"></h2>
+  <h2 v-html="category.title"></h2>
   <div class="table-responsive">
     <table class="table table-sm">
       <thead>
         <tr>
           <th>Name</th>
-          <th v-if="cat.hasImages">Image</th>
-          <th v-if="cat.hasNotes">Notes</th>
-          <th v-if="cat.hasSince">Since</th>
+          <th v-if="category.hasImages">Image</th>
+          <th v-if="category.hasNotes">Notes</th>
+          <th v-if="category.hasSince">Since</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="character in cat.characters">
+        <tr v-for="character in category.characters">
           <td>{{ character.name }}</td>
-          <td v-if="cat.hasImages">
+          <td v-if="category.hasImages">
             <span v-if="character.images === undefined" class="dash">&mdash;</span>
             <a v-for="image in character.images" :href="image">
               <img class="image img-thumbnail" :src="image">
             </a>
           </td>
-          <template v-if="cat.hasNotes">
+          <template v-if="category.hasNotes">
             <td v-if="character.notes === undefined">&mdash;</td>
             <td v-else v-html="character.notes.join('<br>')"></td>
           </template>
-          <template v-if="cat.hasSince">
+          <template v-if="category.hasSince">
             <td v-if="character.since === undefined">???</td>
             <td v-else-if="character.days === 1">{{ character.since }} ({{ character.days }} day)</td>
             <td v-else>{{ character.since }} ({{ character.days }} days)</td>
@@ -35,8 +35,14 @@
 </template>
 
 
-<script>
+<script setup>
 import { DATA_URL } from "@/data.js";
+
+const props = defineProps({
+  category: Object
+});
+
+const category = cleanCategory(props.category);
 
 function daysSince(year, month, day) {
   const then = Date.UTC(year, month - 1, day)
@@ -73,18 +79,6 @@ function cleanCategory(category) {
   c.hasNotes = c.characters.find(x => x.notes !== undefined);
   c.hasSince = c.characters.find(x => x.since !== undefined);
   return c;
-}
-
-export default {
-  props: {
-    category: Object
-  },
-
-  data() {
-    return {
-      cat: cleanCategory(this.category)
-    }
-  }
 }
 </script>
 

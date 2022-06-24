@@ -7,60 +7,50 @@
 </template>
 
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import { useHead } from '@vueuse/head';
-import TopBar from "@/components/TopBar"
 import { JSONFetch } from '@/data.js';
+import TopBar from "@/components/TopBar";
+
+useHead({ title: "XP | PM Random" });
 
 
-export default {
-  components: { TopBar },
+let data = ref(null);
 
-  setup() {
-    useHead({ title: "XP | PM Random" });
+let chartOptions = ref({
+  chart: { type: "spline" },
+  title: null,
+  credits: { enabled: false },
+  xAxis: {
+    title: { text: "Level" },
+    labels: {
+      style: { fontSize: "12px" },
+    }
   },
-
-  created() {
-    JSONFetch("level_up").then(json => {
-      this.rawData = Object.entries(json.level_xp).map(entry => {
-        return {
-          name: entry[0],
-          data: entry[1].map((xp, index) => [index + 1, xp])
-        }
-      });
-      this.chartOptions.series = this.rawData;
-    });
+  yAxis: {
+    title: null,
+    labels: {
+      style: { fontSize: "12px" }
+    }
   },
-
-  data() {
-    return {
-      rawData: null,
-      chartOptions: {
-        chart: { type: "spline" },
-        title: null,
-        credits: { enabled: false },
-        xAxis: {
-          title: { text: "Level" },
-          labels: {
-            style: { fontSize: "12px" },
-          }
-        },
-        yAxis: {
-          title: null,
-          labels: {
-            style: { fontSize: "12px" }
-          }
-        },
-        plotOptions: {
-          spline: {
-            marker: {
-              symbol: "circle",
-              enabled: false
-            }
-          }
-        }
+  plotOptions: {
+    spline: {
+      marker: {
+        symbol: "circle",
+        enabled: false
       }
     }
   }
-}
+});
+
+JSONFetch("level_up").then(json => {
+  data.value = Object.entries(json.level_xp).map(entry => {
+    return {
+      name: entry[0],
+      data: entry[1].map((xp, index) => [index + 1, xp])
+    }
+  });
+  chartOptions.value.series = data;
+});
 </script>

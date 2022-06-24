@@ -41,22 +41,11 @@
 </template>
 
 
-<script>
+<script setup>
 import NameAndVersion from '@/components/NameAndVersion';
 
-export default {
-  components: { NameAndVersion },
-  data() {
-    return {
-      version: null,
-    }
-  },
-
-  methods: {
-    showSpecialIcon() {
-      return new Date() <= new Date('2022-06-02');
-    }
-  }
+function showSpecialIcon() {
+  return new Date() < new Date('2022-06-02');
 }
 </script>
 

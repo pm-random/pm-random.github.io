@@ -10,14 +10,10 @@
 </template>
 
 
-<script>
+<script setup>
 import { useHead } from '@vueuse/head';
 
-export default {
-  setup() {
-    useHead({ title: "Page not found | PM Random" })
-  },
-}
+useHead({ title: "Page not found | PM Random" });
 </script>
 
 

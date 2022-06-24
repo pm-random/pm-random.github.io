@@ -1,38 +1,24 @@
 <template>
-  <span id="all" :style="style">
-    <span id="name">PM Random</span>
-    <sup id="version">{{ version }}</sup>
+  <span id="all">
+    <span id="name" :style="nameStyle">PM Random</span>
+    <sup id="version" :style="versionStyle">{{ version }}</sup>
   </span>
 </template>
 
 
-<script>
+<script setup>
+import { computed, ref } from 'vue'
 import { JSONFetch } from '@/data'
 
-export default {
-  props: {
-    home: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    style() {
-      return {
-        "--name-size": `${this.home ? 48 : 26}px`,
-        "--version-size": `${this.home ? 36 : 18}px`
-      }
-    }
-  },
-  created() {
-    JSONFetch("version").then(json => this.version = json);
-  },
-  data() {
-    return {
-      version: null
-    }
-  }
-}
+const props = defineProps({
+  home: Boolean
+});
+
+const nameStyle = computed(() => `font-size: ${props.home ? '48' : '24'}px`);
+const versionStyle = computed(() => `font-size: ${props.home ? '36' : '18'}px`);
+
+const version = ref();
+JSONFetch("version").then(json => version.value = json);
 </script>
 
 
@@ -43,11 +29,9 @@ export default {
 
 #name {
   color: black;
-  font-size: var(--name-size);
 }
 
 #version {
   color: var(--accent-color);
-  font-size: var(--version-size);
 }
 </style>
