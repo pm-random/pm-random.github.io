@@ -1,25 +1,29 @@
 <template>
-  <TopBar/>
+  <TopBar />
   <div class="page-content">
     <h1>Pokémon</h1>
-    <HintedCharacterTable v-for="category in beta" :key="category" :category="category"/>
+    <HintedCharacterTable
+      v-for="category in beta"
+      :key="category"
+      :category="category"
+    />
   </div>
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
-import { useHead } from '@vueuse/head';
-import { JSONFetch } from "@/data.js";
-import TopBar from "@/components/TopBar";
-import HintedCharacterTable from "@/components/HintedCharacterTable";
+import { ref } from "vue";
+import { useHead } from "@vueuse/head";
+import { JSONFetch } from "@/data.ts";
+import TopBar from "@/components/TopBar.vue";
+import HintedCharacterTable from "@/components/HintedCharacterTable.vue";
 
 useHead({ title: "Pokémon | PM Random" });
 
 const beta = ref([]);
-JSONFetch("monsters_beta").then(json => beta.value = [{"title": "1.0.0 to 1.1.1", "monsters": json}]);
+JSONFetch("monsters_beta").then(
+  json => (beta.value = [{ title: "1.0.0 to 1.1.1", monsters: json }])
+);
 </script>
-
 
 <style scoped>
 #grid {
@@ -30,7 +34,7 @@ JSONFetch("monsters_beta").then(json => beta.value = [{"title": "1.0.0 to 1.1.1"
 
 .grid-item {
   border: solid 1px lightgray;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border-radius: 4px;
   padding: 5px;
 }

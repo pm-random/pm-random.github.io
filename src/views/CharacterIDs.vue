@@ -1,5 +1,5 @@
 <template>
-  <TopBar/>
+  <TopBar />
   <div class="page-content">
     <h1>Character IDs</h1>
 
@@ -10,11 +10,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Scoutable</td></tr>
-        <tr class="playable"><td>Playable</td></tr>
-        <tr class="npc"><td>NPC</td></tr>
-        <tr class="id-only"><td>ID-only</td></tr>
-        <tr class="id-only-early"><td>ID-only (1.0.0 to 1.1.1)</td></tr>
+        <tr>
+          <td>Scoutable</td>
+        </tr>
+        <tr class="playable">
+          <td>Playable</td>
+        </tr>
+        <tr class="npc">
+          <td>NPC</td>
+        </tr>
+        <tr class="id-only">
+          <td>ID-only</td>
+        </tr>
+        <tr class="id-only-early">
+          <td>ID-only (1.0.0 to 1.1.1)</td>
+        </tr>
       </tbody>
     </table>
 
@@ -31,24 +41,26 @@
           <template v-if="row.number">
             <td :class="row.status">{{ row.number }}</td>
             <td :class="row.status">{{ row.name }}</td>
-            <td :class="row.status">{{ row.internal_name }}</td>
+            <td :class="row.status">
+              {{ row.internal_name }}
+            </td>
           </template>
-          <td v-else colspan="3" class="unused-id">{{ row }} unused ID{{ row === 1 ? "" : "s" }}</td>
+          <td v-else colspan="3" class="unused-id">
+            {{ row }} unused ID{{ row === 1 ? "" : "s" }}
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
-import { useHead } from '@vueuse/head';
-import { JSONFetch } from "@/data.js";
-import TopBar from "@/components/TopBar";
+import { ref } from "vue";
+import { useHead } from "@vueuse/head";
+import { JSONFetch } from "@/data.ts";
+import TopBar from "@/components/TopBar.vue";
 
 useHead({ title: "Character IDs | PM Random" });
-
 
 const rows = ref();
 
@@ -57,8 +69,8 @@ JSONFetch("character_ids").then(json => {
   const last_number = json.map(c => parseInt(c.number)).reverse()[0];
   const tmp = [];
 
-  for (var i = 0; i <= last_number; i++) {
-    let chara = map.get(i);
+  for (let i = 0; i <= last_number; i++) {
+    const chara = map.get(i);
     if (chara !== undefined) {
       tmp.push(chara);
     } else if (Number.isInteger(tmp[tmp.length - 1])) {
@@ -71,7 +83,6 @@ JSONFetch("character_ids").then(json => {
   rows.value = tmp;
 });
 </script>
-
 
 <style scoped>
 .unused-id {

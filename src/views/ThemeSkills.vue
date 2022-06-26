@@ -1,5 +1,5 @@
 <template>
-  <TopBar/>
+  <TopBar />
   <div class="page-content">
     <h1>Theme Skills</h1>
     <div class="table-responsive">
@@ -14,13 +14,17 @@
         <tbody>
           <template v-for="character in characters" :key="character">
             <tr>
-              <td class="trainer-name" :rowspan="character.rest.length + 1">{{ character.name }}</td>
+              <td class="trainer-name" :rowspan="character.rest.length + 1">
+                {{ character.name }}
+              </td>
               <td>{{ character.first[0] }}</td>
               <td>{{ character.first[1].join(", ") }}</td>
             </tr>
             <tr v-for="[syncpair, skills] of character.rest" :key="syncpair">
               <td>{{ syncpair }}</td>
-              <td v-if="skills.length > 0">{{ skills.join(", ") }}</td>
+              <td v-if="skills.length > 0">
+                {{ skills.join(", ") }}
+              </td>
               <td v-else>&mdash;</td>
             </tr>
           </template>
@@ -30,29 +34,30 @@
   </div>
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
-import { useHead } from '@vueuse/head';
-import { JSONFetch } from "../data.js";
-import TopBar from '@/components/TopBar.vue';
+import { ref } from "vue";
+import { useHead } from "@vueuse/head";
+import { JSONFetch } from "../data.ts";
+import TopBar from "@/components/TopBar.vue";
 
 useHead({ title: "Theme Skills | PM Random" });
 
 const characters = ref([]);
 const loaded = ref(false);
 
-JSONFetch('team_skills').then(json => {
+JSONFetch("team_skills").then(json => {
   for (const [name, syncpairs] of Object.entries(json)) {
-    let firstKey = Object.keys(syncpairs)[0];
-    let character = {'name': name, 'first': [firstKey, syncpairs[firstKey]]};
+    const firstKey = Object.keys(syncpairs)[0];
+    const character = {
+      name: name,
+      first: [firstKey, syncpairs[firstKey]],
+    };
     character.rest = Object.entries(syncpairs).slice(1);
     characters.value.push(character);
   }
   loaded.value = true;
 });
 </script>
-
 
 <style>
 .trainer-name {

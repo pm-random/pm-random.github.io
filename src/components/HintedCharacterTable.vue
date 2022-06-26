@@ -14,9 +14,11 @@
         <tr v-for="character in category.characters">
           <td>{{ character.name }}</td>
           <td v-if="category.hasImages">
-            <span v-if="character.images === undefined" class="dash">&mdash;</span>
+            <span v-if="character.images === undefined" class="dash">
+              &mdash;
+            </span>
             <a v-for="image in character.images" :href="image">
-              <img class="image img-thumbnail" :src="image">
+              <img class="image img-thumbnail" :src="image" />
             </a>
           </td>
           <template v-if="category.hasNotes">
@@ -25,8 +27,14 @@
           </template>
           <template v-if="category.hasSince">
             <td v-if="character.since === undefined">???</td>
-            <td v-else-if="character.days === 1">{{ character.since }} ({{ character.days }} day)</td>
-            <td v-else>{{ character.since }} ({{ character.days }} days)</td>
+            <td v-else-if="character.days === 1">
+              {{ character.since }} ({{ character.days }}
+              day)
+            </td>
+            <td v-else>
+              {{ character.since }} ({{ character.days }}
+              days)
+            </td>
           </template>
         </tr>
       </tbody>
@@ -34,32 +42,31 @@
   </div>
 </template>
 
-
 <script setup>
-import { DATA_URL } from "@/data.js";
+import { DATA_URL } from "@/data";
 
 const props = defineProps({
-  category: Object
+  category: Object,
 });
 
 const category = cleanCategory(props.category);
 
 function daysSince(year, month, day) {
-  const then = Date.UTC(year, month - 1, day)
+  const then = Date.UTC(year, month - 1, day);
   return Math.floor((Date.now() - then) / (60 * 60 * 24 * 1000));
 }
 
 function compareCharacters(a, b) {
-  let difference = a.days - b.days;
+  const difference = a.days - b.days;
   if (difference === 0) {
     return a.name > b.name;
   }
-  return difference
+  return difference;
 }
 
 function cleanCharacter(character) {
   if (character.since !== undefined) {
-    let [year, month, day] = character.since.split('-');
+    const [year, month, day] = character.since.split("-");
     character.days = daysSince(year, month, day);
     character.since = `${day}/${month}/${year}`;
   }
@@ -81,7 +88,6 @@ function cleanCategory(category) {
   return c;
 }
 </script>
-
 
 <style scoped>
 .image {

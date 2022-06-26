@@ -2,53 +2,73 @@
   <nav class="navbar navbar-light navbar-expand-md">
     <div class="container-fluid">
       <router-link :to="'/'" class="navbar-brand">
-        <img v-if="showSpecialIcon()" src="images/special-icon.png">
-        <img v-else src="/favicon.ico">
-        <NameAndVersion/>
+        <img v-if="showSpecialIcon()" src="/src/assets/special-icon.png" />
+        <img v-else src="/src/assets/characters.png" />
+        <NameAndVersion />
       </router-link>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav me-auto flex-row flex-wrap bd-navbar-nav">
-          <router-link :to="'/characters'" class="nav-link col-6 col-md-auto">Characters</router-link>
-          <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto">Pokémon</router-link>
-          <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
-          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">Voice Actors</router-link>
-          <router-link :to="'/character-ids'" class="nav-link col-6 col-md-auto">Character IDs</router-link>
+          <router-link :to="'/characters'" class="nav-link col-6 col-md-auto"
+            >Characters</router-link
+          >
+          <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto"
+            >Pokémon</router-link
+          >
+          <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto"
+            >Revenue</router-link
+          >
+          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto"
+            >Voice Actors</router-link
+          >
+          <router-link :to="'/character-ids'" class="nav-link col-6 col-md-auto"
+            >Character IDs</router-link
+          >
 
           <div class="nav-item dropdown col-12 col-md-auto">
-            <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+            <div
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
               More
             </div>
             <div class="dropdown-menu">
               <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
-              <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
+              <router-link :to="'/theme-skills'" class="dropdown-item"
+                >Theme Skills</router-link
+              >
             </div>
           </div>
         </div>
 
-        <hr class="d-md-none text-gray">
+        <hr class="d-md-none text-gray" />
 
         <a href="https://github.com/pm-random">
-          <img src="images/github.svg">
+          <img src="/src/assets/github.svg" />
         </a>
       </div>
     </div>
   </nav>
 </template>
 
-
-<script setup>
-import NameAndVersion from '@/components/NameAndVersion';
+<script setup lang="ts">
+import NameAndVersion from "@/components/NameAndVersion.vue";
 
 function showSpecialIcon() {
-  return new Date() < new Date('2022-06-02');
+  return new Date() < new Date("2022-06-02");
 }
 </script>
-
 
 <style scoped>
 .navbar-brand {
@@ -59,7 +79,7 @@ function showSpecialIcon() {
 
 nav {
   background-color: #f1f1f1;
-  box-shadow: 0px 1px 3px #BBBBBB;
+  box-shadow: 0px 1px 3px #bbbbbb;
 }
 
 img {

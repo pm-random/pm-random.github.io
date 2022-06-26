@@ -1,5 +1,5 @@
 <template>
-  <TopBar/>
+  <TopBar />
   <div class="page-content">
     <h1>Voice Actors</h1>
     <table class="table table-sm">
@@ -13,16 +13,23 @@
         <tr v-for="actor in jp" class="actor">
           <td>
             <div v-if="actor.name_jp">
-              {{ actor.name }}<br>
-              <div class="actor-name-jp">{{ actor.name_jp }}</div>
+              {{ actor.name }}<br />
+              <div class="actor-name-jp">
+                {{ actor.name_jp }}
+              </div>
             </div>
             <div v-else>{{ actor.name }}</div>
           </td>
           <td>
             <div class="row">
-              <figure v-for="character in actor.characters" class="character col m-0">
-                <img :src="idToImageUrl(character.id)" :alt="character.id">
-                <figcaption>{{ character.name }}</figcaption>
+              <figure
+                v-for="character in actor.characters"
+                class="character col m-0"
+              >
+                <img :src="idToImageUrl(character.id)" :alt="character.id" />
+                <figcaption>
+                  {{ character.name }}
+                </figcaption>
               </figure>
             </div>
           </td>
@@ -32,25 +39,22 @@
   </div>
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
-import { DATA_URL, JSONFetch } from "@/data.js";
-import { useHead } from '@vueuse/head';
-import TopBar from "@/components/TopBar";
+import { ref } from "vue";
+import { DATA_URL, JSONFetch } from "@/data.ts";
+import { useHead } from "@vueuse/head";
+import TopBar from "@/components/TopBar.vue";
 
 useHead({ title: "Voice Actors | PM Random" });
 
-
 const jp = ref([]);
-JSONFetch("voice_actors_jp").then(json => jp.value = json);
-
+JSONFetch("voice_actors_jp").then(json => (jp.value = json));
 
 const exceptions = new Map([
   ["ch0065_00_professor", "render/professor-bellis.png"],
   ["ch0093_00_staff_center", "render/trista.png"],
   ["ch0103_00_staff_shop", "render/tricia.png"],
-  ["ch0104_00_staff_cafe", "render/trinnia.png"]
+  ["ch0104_00_staff_cafe", "render/trinnia.png"],
 ]);
 
 function idToImageUrl(id) {
@@ -59,7 +63,6 @@ function idToImageUrl(id) {
   return `${DATA_URL}/images/characters/${exceptions.get(id)}`;
 }
 </script>
-
 
 <style scoped>
 img {

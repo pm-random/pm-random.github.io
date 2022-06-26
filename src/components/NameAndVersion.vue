@@ -5,26 +5,24 @@
   </span>
 </template>
 
-
-<script setup>
-import { computed, ref } from 'vue'
-import { JSONFetch } from '@/data'
+<script setup lang="ts">
+import { computed, ref } from "vue";
+import { JSONFetch } from "@/data";
 
 const props = defineProps({
-  home: Boolean
+  home: Boolean,
 });
 
-const nameStyle = computed(() => `font-size: ${props.home ? '48' : '24'}px`);
-const versionStyle = computed(() => `font-size: ${props.home ? '36' : '18'}px`);
+const nameStyle = computed(() => `font-size: ${props.home ? "48" : "24"}px`);
+const versionStyle = computed(() => `font-size: ${props.home ? "36" : "18"}px`);
 
 const version = ref();
-JSONFetch("version").then(json => version.value = json);
+JSONFetch("version").then(json => (version.value = json));
 </script>
-
 
 <style scoped>
 #all {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
 }
 
 #name {

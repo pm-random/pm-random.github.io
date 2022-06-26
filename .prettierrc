@@ -1,0 +1,7 @@
+{
+  "semi": true,
+  "tabWidth": 2,
+  "quote": "double",
+  "avoidEscape": true,
+  "arrowParens": "avoid"
+}
