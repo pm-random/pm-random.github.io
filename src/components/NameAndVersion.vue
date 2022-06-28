@@ -35,6 +35,6 @@ JSONFetch("version").then(json => (version.value = json));
 #version {
   color: var(--accent-color);
   text-align: right;
-  margin-top: -10%;
+  margin-top: -11%;
 }
 </style>
