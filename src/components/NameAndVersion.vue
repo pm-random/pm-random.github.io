@@ -1,23 +1,23 @@
 <template>
   <div id="all">
     <div id="name" :style="nameStyle">PM Random</div>
-    <div id="version" :style="versionStyle">{{ version }}</div>
+    <div id="version" :style="versionStyle">{{ store.version }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { JSONFetch } from "@/data";
+import { computed } from "vue";
+import { useMainStore } from "@/stores/main";
 
 const props = defineProps({
   home: Boolean,
 });
 
+const store = useMainStore();
+store.refreshVersion();
+
 const nameStyle = computed(() => `font-size: ${props.home ? "48" : "24"}px`);
 const versionStyle = computed(() => `font-size: ${props.home ? "28" : "14"}px`);
-
-const version = ref();
-JSONFetch("version").then(json => (version.value = json));
 </script>
 
 <style scoped>

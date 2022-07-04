@@ -1,13 +1,17 @@
 import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
+import type { Plugin } from "vue";
 import { createHead } from "@vueuse/head";
+import { createPinia } from "pinia";
 import HighchartsVue from "highcharts-vue";
 import "bootstrap";
 
-// Cast HighchartsVue to any, as it's supposed to be used with the now deprecated Class API
+import App from "./App.vue";
+import router from "./router";
+
+// Cast HighchartsVue to Plugin, as it's supposed to be used with the now deprecated Class API
 createApp(App)
   .use(router)
   .use(createHead())
-  .use(HighchartsVue as any)
+  .use(createPinia())
+  .use(HighchartsVue as unknown as Plugin)
   .mount("#app");
