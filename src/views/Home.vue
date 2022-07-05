@@ -7,7 +7,7 @@
       <img class="item-image" src="/src/assets/characters.png" />
       <div class="item-title">Characters</div>
     </router-link>
-    <router-link class="item" to="/pokemon">
+    <router-link class="item" to="/monsters">
       <img class="item-image" src="/src/assets/monsters.png" />
       <div class="item-title">Pokémon</div>
     </router-link>
