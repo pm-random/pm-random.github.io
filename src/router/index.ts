@@ -3,7 +3,10 @@ import { createRouter, createWebHistory } from "vue-router";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: "/", component: () => import("../views/Home.vue") },
+    {
+      path: "/",
+      component: () => import("../views/Home.vue")
+    },
     {
       path: "/characters",
       component: () => import("../views/Characters.vue"),
@@ -20,8 +23,14 @@ const router = createRouter({
       path: "/theme-skills",
       component: () => import("../views/ThemeSkills.vue"),
     },
-    { path: "/revenue", component: () => import("../views/Revenue.vue") },
-    { path: "/xp", component: () => import("../views/XP.vue") },
+    {
+      path: "/revenue",
+      component: () => import("../views/Revenue.vue")
+    },
+    {
+      path: "/xp",
+      component: () => import("../views/XP.vue")
+    },
     {
       path: "/voice-actors",
       component: () => import("../views/VoiceActors.vue"),

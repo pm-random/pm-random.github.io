@@ -22,9 +22,7 @@
             <tr v-for="game in absent" v-bind:key="game.name">
               <td>{{ game.name }}</td>
               <td>{{ game.characters.length }}</td>
-              <td>
-                {{ game.characters.sort().join(", ") }}
-              </td>
+              <td>{{ game.characters.sort().join(", ") }}</td>
             </tr>
           </tbody>
         </table>

@@ -41,9 +41,7 @@
           <template v-if="row.number">
             <td :class="row.status">{{ row.number }}</td>
             <td :class="row.status">{{ row.name }}</td>
-            <td :class="row.status">
-              {{ row.internal_name }}
-            </td>
+            <td :class="row.status">{{ row.internal_name }}</td>
           </template>
           <td v-else colspan="3" class="unused-id">
             {{ row }} unused ID{{ row === 1 ? "" : "s" }}
@@ -54,29 +52,39 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { useHead } from "@vueuse/head";
-import { JSONFetch } from "@/data.ts";
+import { getJson } from "@/data";
 import TopBar from "@/components/TopBar.vue";
+
+interface Character {
+  number: string,
+  name: string,
+  internal_name: string,
+  status?: string
+}
 
 useHead({ title: "Character IDs | PM Random" });
 
 const rows = ref();
 
-JSONFetch("character_ids").then(json => {
-  const map = new Map(json.map(c => [parseInt(c.number), c]));
-  const last_number = json.map(c => parseInt(c.number)).reverse()[0];
-  const tmp = [];
+getJson<Array<Character>>("character_ids").then(characters => {
+  const map = new Map(characters.map(c => [parseInt(c.number), c]));
+  const last_number = parseInt(characters[characters.length - 1].number);
+  const tmp: Array<Character | number> = [];
 
+  let unusedIds = 0;
   for (let i = 0; i <= last_number; i++) {
-    const chara = map.get(i);
-    if (chara !== undefined) {
-      tmp.push(chara);
-    } else if (Number.isInteger(tmp[tmp.length - 1])) {
-      tmp[tmp.length - 1]++;
+    const character = map.get(i);
+    if (character !== undefined) {
+      if (unusedIds > 0) {
+        tmp.push(unusedIds);
+        unusedIds = 0;
+      }
+      tmp.push(character);
     } else {
-      tmp.push(1);
+      unusedIds++;
     }
   }
 

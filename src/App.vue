@@ -9,11 +9,7 @@ import { useHead } from "@vueuse/head";
 useHead({
   meta: [
     { charset: "utf-8" },
-    {
-      name: "description",
-      content:
-        "List of missing characters, and other random stuff about Pokémon Masters",
-    },
+    { name: "description", content: "List of missing characters, and other random stuff about Pokémon Masters" },
     { name: "viewport", content: "width=device-width" },
     { name: "theme-color", content: "#be1a39" },
   ],
@@ -37,12 +33,7 @@ useHead({
   padding: 12px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Rajdhani", sans-serif;
 }
 
