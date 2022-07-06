@@ -1,10 +1,9 @@
 <template>
-  <nav class="navbar navbar-light navbar-expand-md">
-    <div class="container-fluid">
-      <router-link :to="'/'" class="navbar-brand">
-        <img v-if="showSpecialIcon()" src="/src/assets/special-icon.png" />
-        <img v-else src="/src/assets/characters.png" />
-        <NameAndVersion />
+  <nav class="navbar navbar-expand-md">
+    <div class="container-xxl">
+      <router-link :to="'/'" class="navbar-brand d-flex align-items-center p-0">
+        <img :src="iconPath()" />
+        <NameAndVersion class="ms-1"/>
       </router-link>
 
       <button
@@ -18,21 +17,11 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav me-auto flex-row flex-wrap bd-navbar-nav">
-          <router-link :to="'/characters'" class="nav-link col-6 col-md-auto"
-            >Characters</router-link
-          >
-          <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto"
-            >Pokémon</router-link
-          >
-          <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto"
-            >Revenue</router-link
-          >
-          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto"
-            >Voice Actors</router-link
-          >
-          <router-link :to="'/character-ids'" class="nav-link col-6 col-md-auto"
-            >Character IDs</router-link
-          >
+          <router-link :to="'/characters'" class="nav-link col-6 col-md-auto">Characters</router-link>
+          <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto">Pokémon</router-link>
+          <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
+          <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">Voice Actors</router-link>
+          <router-link :to="'/character-ids'" class="nav-link col-6 col-md-auto">Character IDs</router-link>
 
           <div class="nav-item dropdown col-12 col-md-auto">
             <div
@@ -45,9 +34,7 @@
             </div>
             <div class="dropdown-menu">
               <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
-              <router-link :to="'/theme-skills'" class="dropdown-item"
-                >Theme Skills</router-link
-              >
+              <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
             </div>
           </div>
         </div>
@@ -65,21 +52,18 @@
 <script setup lang="ts">
 import NameAndVersion from "@/components/NameAndVersion.vue";
 
-function showSpecialIcon() {
-  return new Date() < new Date("2022-06-02");
+const specialIconDeadline = "2022-06-02";
+
+function iconPath(): string {
+  if (new Date() < new Date(specialIconDeadline))
+    return "/src/assets/special-icon.png";
+  return "/src/assets/characters.png";
 }
 </script>
 
 <style scoped>
-.navbar-brand {
-  display: inline-flex;
-  gap: 6px;
-  padding: 0px;
-}
-
 nav {
   background-color: #f1f1f1;
-  box-shadow: 0px 1px 3px #bbbbbb;
 }
 
 img {

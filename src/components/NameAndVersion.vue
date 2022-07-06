@@ -17,7 +17,7 @@ const store = useMainStore();
 store.refreshVersion();
 
 const nameStyle = computed(() => `font-size: ${props.home ? "48" : "24"}px`);
-const versionStyle = computed(() => `font-size: ${props.home ? "28" : "14"}px`);
+const versionStyle = computed(() => `font-size: ${props.home ? "24" : "14"}px`);
 </script>
 
 <style scoped>
