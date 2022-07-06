@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-md">
     <div class="container-xxl">
-      <router-link :to="'/'" class="navbar-brand d-flex align-items-center p-0">
+      <router-link :to="'/'" class="navbar-brand d-flex p-0">
         <img :src="iconPath()" />
         <NameAndVersion class="ms-1"/>
       </router-link>
@@ -67,6 +67,6 @@ nav {
 }
 
 img {
-  height: 40px;
+  height: 36px;
 }
 </style>

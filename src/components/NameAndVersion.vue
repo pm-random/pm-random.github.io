@@ -1,5 +1,5 @@
 <template>
-  <div id="all">
+  <div id="all" class="d-flex flex-column justify-content-center">
     <div id="name" :style="nameStyle">PM Random</div>
     <div id="version" :style="versionStyle">{{ store.version }}</div>
   </div>
@@ -30,11 +30,12 @@ const versionStyle = computed(() => `font-size: ${props.home ? "24" : "14"}px`);
 #name {
   color: black;
   white-space: nowrap;
+  line-height: 0.85em;
 }
 
 #version {
   color: var(--accent-color);
   text-align: right;
-  margin-top: -11%;
+  line-height: 0.85em;
 }
 </style>
