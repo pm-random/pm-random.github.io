@@ -47,14 +47,6 @@ tr {
   vertical-align: middle;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: white;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
