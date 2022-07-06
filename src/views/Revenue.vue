@@ -1,5 +1,4 @@
 <template>
-  <TopBar />
   <div class="page-content">
     <h1>Revenue</h1>
     <highcharts :options="chartOptions"></highcharts>
@@ -10,7 +9,6 @@
 import { ref } from "vue";
 import { useHead } from "@vueuse/head";
 import { JSONFetch } from "@/data";
-import TopBar from "@/components/TopBar.vue";
 
 useHead({ title: "Revenue | PM Random" });
 

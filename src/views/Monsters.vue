@@ -1,5 +1,4 @@
 <template>
-  <TopBar />
   <div class="page-content">
     <h1>Pokémon</h1>
     <HintedCharacterTable
@@ -14,7 +13,6 @@
 import { ref } from "vue";
 import { useHead } from "@vueuse/head";
 import { JSONFetch } from "@/data.ts";
-import TopBar from "@/components/TopBar.vue";
 import HintedCharacterTable from "@/components/HintedCharacterTable.vue";
 
 useHead({ title: "Pokémon | PM Random" });

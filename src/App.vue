@@ -1,10 +1,16 @@
 <template>
-  <RouterView />
+  <TopBar />
+  <router-view v-slot="{ Component }">
+    <Transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </router-view>
 </template>
 
 <script setup lang="ts">
 import { RouterView } from "vue-router";
 import { useHead } from "@vueuse/head";
+import TopBar from "./components/TopBar.vue";
 
 useHead({
   meta: [
@@ -47,5 +53,13 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 275ms ease-out;
 }
 </style>

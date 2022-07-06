@@ -1,5 +1,4 @@
 <template>
-  <TopBar />
   <div class="page-content">
     <h1>Character IDs</h1>
 
@@ -56,7 +55,6 @@
 import { ref } from "vue";
 import { useHead } from "@vueuse/head";
 import { getJson } from "@/data";
-import TopBar from "@/components/TopBar.vue";
 
 interface Character {
   number: string,

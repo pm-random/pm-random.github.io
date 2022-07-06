@@ -1,5 +1,4 @@
 <template>
-  <TopBar />
   <div class="page-content">
     <h1>Voice Actors</h1>
     <table class="table table-sm">
@@ -43,7 +42,6 @@
 import { ref } from "vue";
 import { DATA_URL, JSONFetch } from "@/data.ts";
 import { useHead } from "@vueuse/head";
-import TopBar from "@/components/TopBar.vue";
 
 useHead({ title: "Voice Actors | PM Random" });
 
