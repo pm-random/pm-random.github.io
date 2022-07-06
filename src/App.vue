@@ -1,6 +1,6 @@
 <template>
   <TopBar />
-  <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }" class="container-xxl">
     <Transition name="fade" mode="out-in">
       <component :is="Component" />
     </Transition>
