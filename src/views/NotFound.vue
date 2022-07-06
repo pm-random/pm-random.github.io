@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <h1>404</h1>
+  <div id="all" class="mt-5">
     <img src="/favicon.ico" />
-    <div id="message" class="padded-div">
-      <div class="padded-div">Page not found :(</div>
-      <router-link to="/">Homepage</router-link>
-    </div>
+    <div id="not-found" class="m-2">Page not found :(</div>
+    <router-link to="/">Home</router-link>
   </div>
 </template>
 
@@ -16,16 +13,11 @@ useHead({ title: "Page not found | PM Random" });
 </script>
 
 <style scoped>
-#message {
+#all {
+  font-size: 1.2em;
+}
+
+#not-found {
   font-weight: bold;
-}
-
-.padded-div {
-  padding: 8px;
-}
-
-h1 {
-  font-size: 4em;
-  margin-bottom: 0px;
 }
 </style>
