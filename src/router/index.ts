@@ -20,16 +20,8 @@ const router = createRouter({
       component: () => import("../views/Monsters.vue"),
     },
     {
-      path: "/theme-skills",
-      component: () => import("../views/ThemeSkills.vue"),
-    },
-    {
       path: "/revenue",
       component: () => import("../views/Revenue.vue")
-    },
-    {
-      path: "/xp",
-      component: () => import("../views/XP.vue")
     },
     {
       path: "/voice-actors",

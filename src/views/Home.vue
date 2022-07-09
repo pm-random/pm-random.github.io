@@ -24,14 +24,6 @@
         <img class="item-image" src="/src/assets/character-ids.png" />
         <div class="item-title">Character IDs</div>
       </router-link>
-      <router-link class="item" to="/xp">
-        <img class="item-image" src="/src/assets/manual3.png" />
-        <div class="item-title">XP</div>
-      </router-link>
-      <router-link class="item" to="/theme-skills">
-        <img class="item-image" src="/src/assets/skill-sphere.png" />
-        <div class="item-title">Theme Skills</div>
-      </router-link>
     </div>
   </div>
 </template>

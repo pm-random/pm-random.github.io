@@ -22,21 +22,6 @@
           <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
           <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">Voice Actors</router-link>
           <router-link :to="'/character-ids'" class="nav-link col-6 col-md-auto">Character IDs</router-link>
-
-          <div class="nav-item dropdown col-12 col-md-auto">
-            <div
-              class="nav-link dropdown-toggle"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-            >
-              More
-            </div>
-            <div class="dropdown-menu">
-              <router-link :to="'/xp'" class="dropdown-item">XP</router-link>
-              <router-link :to="'/theme-skills'" class="dropdown-item">Theme Skills</router-link>
-            </div>
-          </div>
         </div>
 
         <hr class="d-md-none text-gray" />
