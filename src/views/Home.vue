@@ -1,7 +1,7 @@
 <template>
   <div>
     <NameAndVersion class="my-5" home/>
-    <div id="grid" class="container-xxl">
+    <div id="grid" class="container-xxl my-3">
       <router-link v-for="item in items" :key="item.link" :to="item.link" class="item card shadow-sm p-1">
         <img class="item-image" :src="item.image" />
         <div class="item-title">{{ item.title }}</div>

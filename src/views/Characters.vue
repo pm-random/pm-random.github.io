@@ -15,7 +15,7 @@
             {{ absent.map(game => game.characters.length).reduce((a, b) => a + b) }}
           </span>
         </div>
-        <div class="border border-1"></div>
+        <div class="divider"></div>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -83,5 +83,10 @@ getJson<Array<AbsentCat>>("characters_absent").then(
 
 .large-badge {
   font-size: 16px;
+}
+
+.divider {
+  background-color: var(--bs-border-color);
+  height: 2px;
 }
 </style>

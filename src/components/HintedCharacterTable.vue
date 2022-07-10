@@ -4,7 +4,7 @@
       <h4 v-html="category.title" class="m-0"></h4>
       <span class="badge bg-primary rounded-pill">{{ category.characters.length }}</span>
     </div>
-    <div class="border border-1"></div>
+    <div class="divider"></div>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -110,5 +110,10 @@ function enhanceCategory(category: Category): EnhancedCategory {
 
 .badge {
   font-size: 16px;
+}
+
+.divider {
+  background-color: var(--bs-border-color);
+  height: 2px;
 }
 </style>
