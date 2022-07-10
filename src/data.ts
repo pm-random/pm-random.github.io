@@ -7,6 +7,6 @@ export async function getJson<T>(path: string): Promise<T> {
 
 export function mascotPath(): string {
   if (Date.now() < Date.parse("2022-06-02"))
-    return "/src/assets/mascot-special.png";
-  return "/src/assets/mascot.png";
+    return "/assets/mascot-special.png";
+  return "/assets/mascot.png";
 }

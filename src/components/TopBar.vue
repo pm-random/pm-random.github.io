@@ -27,7 +27,7 @@
         <hr class="d-md-none text-gray" />
 
         <a href="https://github.com/pm-random">
-          <img src="/src/assets/github.svg" />
+          <img src="/assets/github.svg" />
         </a>
       </div>
     </div>
