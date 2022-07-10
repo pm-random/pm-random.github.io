@@ -1,28 +1,10 @@
 <template>
   <div>
-    <div id="nv-wrapper">
-      <NameAndVersion home />
-    </div>
-    <div id="grid" class="page-content">
-      <router-link class="item" to="/characters">
-        <img class="item-image" src="/src/assets/characters.png" />
-        <div class="item-title">Characters</div>
-      </router-link>
-      <router-link class="item" to="/monsters">
-        <img class="item-image" src="/src/assets/monsters.png" />
-        <div class="item-title">Pokémon</div>
-      </router-link>
-      <router-link class="item" to="/revenue">
-        <img class="item-image" src="/src/assets/gem.png" />
-        <div class="item-title">Revenue</div>
-      </router-link>
-      <router-link class="item" to="/voice-actors">
-        <img class="item-image" src="/src/assets/voice-actors.png" />
-        <div class="item-title">Voice Actors</div>
-      </router-link>
-      <router-link class="item" to="/character-ids">
-        <img class="item-image" src="/src/assets/character-ids.png" />
-        <div class="item-title">Character IDs</div>
+    <NameAndVersion class="my-5" home/>
+    <div id="grid" class="container-xxl">
+      <router-link v-for="item in items" :key="item.link" :to="item.link" class="item card shadow-sm p-1">
+        <img class="item-image" :src="item.image" />
+        <div class="item-title">{{ item.title }}</div>
       </router-link>
     </div>
   </div>
@@ -30,16 +12,27 @@
 
 <script setup lang="ts">
 import { useHead } from "@vueuse/head";
+import { mascotPath } from "@/data";
 import NameAndVersion from "@/components/NameAndVersion.vue";
 
 useHead({ title: "PM Random" });
+
+interface Item {
+  title: string,
+  link: string,
+  image: string
+}
+
+const items: Array<Item> = [
+  {title: "Characters", link: "/characters", image: mascotPath()},
+  {title: "Pokémon", link: "/monsters", image: "/src/assets/monsters.png"},
+  {title: "Revenue", link: "/revenue", image: "/src/assets/gem.png"},
+  {title: "Voice Actors", link: "/voice-actors", image: "/src/assets/voice-actors.png"},
+  {title: "Character IDs", link: "/character-ids", image: "/src/assets/character-ids.png"}
+];
 </script>
 
 <style scoped>
-#nv-wrapper {
-  padding: 30px;
-}
-
 #grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -47,10 +40,8 @@ useHead({ title: "PM Random" });
 }
 
 .item {
-  border-radius: 15px;
-  padding: 5px;
   text-decoration: none;
-  box-shadow: 3px 3px 1px 1px #bbbbbb;
+  display: inline;
 }
 
 .item:hover {

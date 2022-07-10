@@ -1,25 +1,36 @@
 <template>
-  <div class="page-content">
-    <h1>Pokémon</h1>
-    <HintedCharacterTable
-      v-for="category in beta"
-      :key="category"
-      :category="category"
-    />
+  <div class="container-xxl">
+    <h1 class="my-3">Pokémon</h1>
+    <div v-if="beta == null" class="spinner-grow my-3"></div>
+    <div v-else class="card border border-3 shadow-sm my-3">
+      <HintedCharacterTable :category="beta" />
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { ref, type Ref } from "vue";
 import { useHead } from "@vueuse/head";
-import { JSONFetch } from "@/data.ts";
+import { getJson } from "@/data";
 import HintedCharacterTable from "@/components/HintedCharacterTable.vue";
 
 useHead({ title: "Pokémon | PM Random" });
 
-const beta = ref([]);
-JSONFetch("monsters_beta").then(
-  json => (beta.value = [{ title: "1.0.0 to 1.1.1", monsters: json }])
+interface BetaMonster {
+  name: string,
+  date: string
+  images?: Array<string>,
+  notes?: Array<string>,
+}
+
+interface BetaMonsterList {
+  title: string,
+  characters: Array<BetaMonster>
+}
+
+const beta: Ref<BetaMonsterList | null> = ref(null);
+getJson<Array<BetaMonster>>("monsters_beta").then(
+  monsters => beta.value = { title: "1.0.0 to 1.1.1", characters: monsters }
 );
 </script>
 

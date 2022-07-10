@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md">
     <div class="container-xxl">
       <router-link :to="'/'" class="navbar-brand d-flex p-0">
-        <img :src="iconPath()" />
+        <img :src="mascotPath()" />
         <NameAndVersion class="ms-1"/>
       </router-link>
 
@@ -36,14 +36,7 @@
 
 <script setup lang="ts">
 import NameAndVersion from "@/components/NameAndVersion.vue";
-
-const specialIconDeadline = "2022-06-02";
-
-function iconPath(): string {
-  if (new Date() < new Date(specialIconDeadline))
-    return "/src/assets/special-icon.png";
-  return "/src/assets/characters.png";
-}
+import { mascotPath } from "@/data";
 </script>
 
 <style scoped>

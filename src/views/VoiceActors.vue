@@ -1,52 +1,56 @@
 <template>
-  <div class="page-content">
-    <h1>Voice Actors</h1>
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th>Voice Actor</th>
-          <th>Characters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="actor in jp" class="actor">
-          <td>
-            <div v-if="actor.name_jp">
-              {{ actor.name }}<br />
-              <div class="actor-name-jp">
-                {{ actor.name_jp }}
+  <div class="container-xxl">
+    <h1 class="my-3">Voice Actors</h1>
+    <div v-if="actors_jp.length == 0" class="spinner-grow my-3"></div>
+    <div v-else class="card border border-3 shadow-sm p-0 my-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Voice Actor</th>
+            <th>Characters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="actor in actors_jp" class="actor" :key="actor.name">
+            <td>
+              <div>{{ actor.name }}</div>
+              <div v-if="actor.name_jp" class="name-jp">{{ actor.name_jp }}</div>
+            </td>
+            <td>
+              <div class="row">
+                <figure v-for="character in actor.characters" :key="character.id" class="character col m-0">
+                  <img :src="idToImageUrl(character.id)" :alt="character.id" />
+                  <figcaption>{{ character.name }}</figcaption>
+                </figure>
               </div>
-            </div>
-            <div v-else>{{ actor.name }}</div>
-          </td>
-          <td>
-            <div class="row">
-              <figure
-                v-for="character in actor.characters"
-                class="character col m-0"
-              >
-                <img :src="idToImageUrl(character.id)" :alt="character.id" />
-                <figcaption>
-                  {{ character.name }}
-                </figcaption>
-              </figure>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import { DATA_URL, JSONFetch } from "@/data.ts";
+<script setup lang="ts">
+import { ref, type Ref } from "vue";
+import { DATA_URL, getJson } from "@/data";
 import { useHead } from "@vueuse/head";
+
+interface Actor {
+  name: string,
+  name_jp?: string,
+  characters: Array<Character>
+}
+
+interface Character {
+  id: string,
+  name: string
+}
 
 useHead({ title: "Voice Actors | PM Random" });
 
-const jp = ref([]);
-JSONFetch("voice_actors_jp").then(json => (jp.value = json));
+const actors_jp: Ref<Array<Actor>> = ref([]);
+getJson<Array<Actor>>("voice_actors_jp").then(actors => actors_jp.value = actors);
 
 const exceptions = new Map([
   ["ch0065_00_professor", "render/professor-bellis.png"],
@@ -55,7 +59,7 @@ const exceptions = new Map([
   ["ch0104_00_staff_cafe", "render/trinnia.png"],
 ]);
 
-function idToImageUrl(id) {
+function idToImageUrl(id: string) {
   if (!exceptions.has(id))
     return `${DATA_URL}/images/characters/256/${id}_256.ktx.png`;
   return `${DATA_URL}/images/characters/${exceptions.get(id)}`;
@@ -68,7 +72,7 @@ img {
   max-height: 70px;
 }
 
-.actor-name-jp {
+.name-jp {
   color: gray;
 }
 </style>

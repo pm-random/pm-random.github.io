@@ -1,28 +1,48 @@
 <template>
-  <div class="page-content">
-    <h1>Revenue</h1>
-    <highcharts :options="chartOptions"></highcharts>
-  </div>
+  <div class="container-xxl">
+    <h1 class="m-3">Revenue</h1>
+    <div v-if="chartOptions.series.length == 0" class="spinner-grow m-3"></div>
+    <div v-else class="card shadow-sm border border-3 my-3">
+      <h4 class="m-2">Sensor Tower (Worldwide)</h4>
+      <highcharts :options="chartOptions"></highcharts>
+    </div>
+  </div>                                                   
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { reactive } from "vue";
 import { useHead } from "@vueuse/head";
-import { JSONFetch } from "@/data";
+import { getJson } from "@/data";
+
+interface Store {
+  name: string,
+  color: string
+  data: Array<[string, number]>
+}
+
+interface StoreSeries {
+  name: string,
+  color: string
+  data: Array<number | null>
+}
 
 useHead({ title: "Revenue | PM Random" });
 
-const chartOptions = ref({
+const chartOptions = reactive({
   chart: {
     type: "spline",
-    numberFormatter: value => `$${value}M`,
+    numberFormatter: (value: string) => `$${value}M`,
     scrollablePlotArea: {
       minWidth: 750,
       scrollPositionX: 1,
     },
+    style: {
+      fontFamily: "Arial, sans-serif"
+    }
   },
-  title: { text: "Sensor Tower data (Worldwide)" },
+  title: null,
   credits: { enabled: false },
+  series: [],
   xAxis: {
     type: "datetime",
     labels: {
@@ -40,28 +60,45 @@ const chartOptions = ref({
     spline: {
       marker: { symbol: "circle" },
       pointIntervalUnit: "month",
+      pointStart: 0
     },
   },
 });
 
-function nullSum(row) {
-  return row.reduce((acc, current) =>
-    acc == null || current == null ? null : acc + current
-  );
-}
 
-JSONFetch("revenue").then(json => {
-  json.stores.forEach(
-    (store, index) => (store.data = json.data.map(row => row[index + 1]))
-  );
-  json.stores.push({
-    name: "Combined",
-    color: "#1111FF",
-    data: json.data.map(row => nullSum(row.slice(1))),
+getJson<Array<Store>>("revenue").then(stores => {
+  const series: Array<StoreSeries> = [];
+  const combinedData: Array<number | null> = [];
+
+  stores.forEach(store => {
+    series.push({
+      name: store.name,
+      color: store.color,
+      data: store.data.map(entry => entry[1])
+    });
+
+    store.data.forEach((entry, index) => {
+      if (combinedData.length <= index) {
+        combinedData.push(entry[1]);
+        return;
+      }
+
+      const current = combinedData[index];
+      if (current == null) {
+        return;
+      }
+
+      const amount = entry[1];
+      if (amount == null) {
+        combinedData[index] = null;
+      } else {
+        combinedData[index] = current + amount;
+      }
+    });
   });
-  chartOptions.value.plotOptions.spline.pointStart = Date.parse(
-    json.data[0][0]
-  );
-  chartOptions.value.series = json.stores;
+
+  series.push({ name: "Combined", color: "#1111FF", data: combinedData });
+  chartOptions.plotOptions.spline.pointStart = Date.parse(stores[0].data[0][0]);
+  chartOptions.series = series as any;
 });
 </script>

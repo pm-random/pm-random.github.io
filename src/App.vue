@@ -35,16 +35,24 @@ useHead({
   font-size: 15px;
 }
 
-.page-content {
-  padding: 12px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Rajdhani", sans-serif;
 }
 
-tr {
+td {
   vertical-align: middle;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.table tbody > tr:last-child > td {
+  border-bottom: 0;
+}
+
+.table {
+  margin-bottom: 0px;
 }
 
 .fade-enter-from, .fade-leave-to {
