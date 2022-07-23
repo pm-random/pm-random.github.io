@@ -23,6 +23,10 @@ const router = createRouter({
       path: "/revenue",
       component: () => import("../views/Revenue.vue")
     },
+    { 
+      path: "/timeline",
+      component: () => import("../views/Timeline.vue")
+    },
     {
       path: "/voice-actors",
       component: () => import("../views/VoiceActors.vue"),

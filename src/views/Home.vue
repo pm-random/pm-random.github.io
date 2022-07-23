@@ -27,6 +27,7 @@ const items: Array<Item> = [
   {title: "Characters", link: "/characters", image: mascotPath()},
   {title: "Pokémon", link: "/monsters", image: "/assets/monsters.png"},
   {title: "Revenue", link: "/revenue", image: "/assets/gem.png"},
+  {title: "Timeline", link: "/timeline", image: "/assets/kana.png"},
   {title: "Voice Actors", link: "/voice-actors", image: "/assets/voice-actors.png"},
   {title: "Character IDs", link: "/character-ids", image: "/assets/character-ids.png"}
 ];

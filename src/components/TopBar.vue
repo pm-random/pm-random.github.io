@@ -19,6 +19,7 @@
         <div class="navbar-nav me-auto flex-row flex-wrap bd-navbar-nav">
           <router-link :to="'/characters'" class="nav-link col-6 col-md-auto">Characters</router-link>
           <router-link :to="'/monsters'" class="nav-link col-6 col-md-auto">Pokémon</router-link>
+          <router-link :to="'/timeline'" class="nav-link col-6 col-md-auto">Timeline</router-link>
           <router-link :to="'/revenue'" class="nav-link col-6 col-md-auto">Revenue</router-link>
           <router-link :to="'/voice-actors'" class="nav-link col-6 col-md-auto">Voice Actors</router-link>
           <router-link :to="'/character-ids'" class="nav-link col-6 col-md-auto">Character IDs</router-link>
