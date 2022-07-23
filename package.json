@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@vueuse/head": "^0.7.6",
-    "bootstrap": "^5.2.0-beta1",
+    "bootstrap": "^5.2.0",
     "highcharts-vue": "^1.4.0",
     "pinia": "^2.0.14",
     "vue": "^3.2.37",
