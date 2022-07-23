@@ -120,8 +120,11 @@ function milestoneToPoint(milestone: Milestone) {
 function createChartOptions(timeline: Timeline) {
   return {
     chart: {
-      zoomType: "x",
-      type: "scatter"
+      type: "scatter",
+      scrollablePlotArea: {
+        minWidth: 750,
+        scrollPositionX: 1,
+      }
     },
     credits: { enabled: false },
     xAxis: {
