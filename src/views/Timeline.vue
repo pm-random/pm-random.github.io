@@ -1,8 +1,51 @@
 <template>
   <div class="container-xxl">  
     <h1 class="m-3">Timeline</h1>
-    <template v-if="loaded">
-      <highcharts :options="chartOptions"></highcharts>
+    <template v-if="chartOptions != null">
+      <div class="card border border-3 shadow-sm my-3 p-0">
+        <highcharts :options="chartOptions"></highcharts>
+      </div>
+
+      <h3 class="my-3">Dev Letters</h3>
+      <div class="card border border-3 shadow-sm my-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="letter in letters" :key="letter.link">
+              <td>
+                <a :href="letter.link">{{ letter.name }}</a>
+              </td>
+              <td>{{ letter.date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="my-3">Milestones</h3>
+      <div class="card border border-3 shadow-sm my-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="milestone in milestones" :key="milestone.name">
+              <td>
+                <a v-if="milestone.link" :href="milestone.link">{{ milestone.name }}</a>
+                <template v-else>{{ milestone.name }}</template>
+              </td>
+              <td>{{ milestone.date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </template>
     <div v-else class="spinner-grow m-3"></div>
   </div>
@@ -23,14 +66,8 @@ interface Version {
 }
 
 interface Letter {
-  name: string,
+  link: string,
   date: string
-}
-
-interface Letters {
-  baseUrl: string,
-  languages: Array<string>,
-  list: Array<Letter>
 }
 
 interface Milestone {
@@ -41,7 +78,7 @@ interface Milestone {
 
 interface Timeline {
   versions: Array<Version>,
-  letters: Letters,
+  letters: Array<Letter>,
   milestones: Array<Milestone>
 }
 
@@ -54,10 +91,9 @@ interface Point {
 }
 
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", { weekday: "long" });
 function formatDate(isoDate: string) {
   const date = new Date(isoDate);
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} (${dateFormatter.format(date)})`;
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 }
 
 function plotBands() {
@@ -103,7 +139,8 @@ function letterToPoint(letter: Letter, index: number) {
   return {
     x: Date.parse(letter.date),
     y: 2,
-    name: `Dev Letter ${index + 1}`,
+    name: `Dev Letter #${index + 1}`,
+    link: letter.link,
     date: formatDate(letter.date)
   };
 }
@@ -113,11 +150,12 @@ function milestoneToPoint(milestone: Milestone) {
     x: Date.parse(milestone.date),
     y: 1,
     name: milestone.name,
+    link: milestone.link,
     date: formatDate(milestone.date)
   };
 }
 
-function createChartOptions(timeline: Timeline) {
+function createChartOptions(versions: Array<Point>, letters: Array<Point>, milestones: Array<Point>) {
   return {
     chart: {
       type: "scatter",
@@ -135,22 +173,23 @@ function createChartOptions(timeline: Timeline) {
     yAxis: { visible: false },
     title: null,
     series: [
-      createSeries("Version", "red", timeline.versions.map(versionToPoint)),
-      createSeries("Dev Letter", "green", timeline.letters.list.map(letterToPoint)),
-      createSeries("Milestone", "blue", timeline.milestones.map(milestoneToPoint))
+      createSeries("Version", "red", versions),
+      createSeries("Dev Letter", "green", letters),
+      createSeries("Milestone", "blue", milestones)
     ]
   };
 }
 
-
-const loaded = ref(false);
 const chartOptions = ref();
+const letters = ref();
+const milestones = ref();
 
 useHead({ title: "Timeline | PM Random" });
 getJson<Timeline>("timeline")
   .then(timeline => {
-    chartOptions.value = createChartOptions(timeline);
-    // TODO: tables at the bottom of chart
-    loaded.value = true;
+    const versions = timeline.versions.map(versionToPoint);
+    letters.value = timeline.letters.map(letterToPoint);
+    milestones.value = timeline.milestones.map(milestoneToPoint);
+    chartOptions.value = createChartOptions(versions, letters.value, milestones.value);
   });
 </script>
