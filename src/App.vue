@@ -39,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Rajdhani", sans-serif;
 }
 
+h2, h3, h4, h5, h6 {
+  text-align: left;
+}
+
 td {
   vertical-align: middle;
 }
