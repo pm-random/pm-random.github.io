@@ -57,6 +57,8 @@ const exceptions = new Map([
   ["ch0093_00_staff_center", "render/trista.png"],
   ["ch0103_00_staff_shop", "render/tricia.png"],
   ["ch0104_00_staff_cafe", "render/trinnia.png"],
+  ["ch0223_00_ushio", "render/matt.png"],
+  ["ch0224_00_izumi", "render/shelly.png"]
 ]);
 
 function idToImageUrl(id: string) {
