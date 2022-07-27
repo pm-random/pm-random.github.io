@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 import { useHead } from "@vueuse/head";
-import { mascotPath } from "@/data";
 import NameAndVersion from "@/components/NameAndVersion.vue";
 
 useHead({ title: "PM Random" });
@@ -24,7 +23,7 @@ interface Item {
 }
 
 const items: Array<Item> = [
-  {title: "Characters", link: "/characters", image: mascotPath()},
+  {title: "Characters", link: "/characters", image: "/assets/mascot.png"},
   {title: "Pokémon", link: "/monsters", image: "/assets/monsters.png"},
   {title: "Revenue", link: "/revenue", image: "/assets/gem.png"},
   {title: "Timeline", link: "/timeline", image: "/assets/kana.png"},
