@@ -21,10 +21,22 @@ interface Milestone {
   link: string;
 }
 
+interface Dated {
+  date: string
+}
+
 interface Timeline {
   versions: Array<Version>;
   letters: Array<Letter>;
   milestones: Array<Milestone>;
+}
+
+function datedCmp(a: Dated, b: Dated) {
+  if (a.date < b.date)
+    return 1;
+  if (b.date < a.date)
+    return -1;
+  return 0;
 }
 
 const versions = ref<Array<Version>>();
@@ -34,9 +46,9 @@ const milestones = ref<Array<Milestone>>();
 useHead({ title: "Timeline | PM Random" });
 
 fetch_cdn_data<Timeline>("timeline").then((timeline) => {
-  letters.value = timeline.letters.reverse();
-  milestones.value = timeline.milestones.reverse();
-  versions.value = timeline.versions.reverse();
+  letters.value = timeline.letters.sort(datedCmp);
+  milestones.value = timeline.milestones.sort(datedCmp);
+  versions.value = timeline.versions.sort(datedCmp);
 });
 </script>
 
