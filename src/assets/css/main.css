@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap");
+
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --accent-color: #be1a39;
+  --border-color: #dfdfdf;
+  --border-radius: 8px;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rajdhani";
+  margin: 0.5rem 0;
+}
+
+a {
+  transition: color 0.2s ease-in-out;
+  color: #0d6efd;
+}
+
+a:hover {
+  color: #0a58ca;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 1px solid var(--border-color);
+}
+
+tr:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody > tr:nth-child(2n + 1) {
+  background-color: #f1f1f1;
+}
+
+th {
+  font-family: "Rajdhani";
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+td {
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+
+td {
+  vertical-align: center;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.875rem;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+hr {
+  border: thin solid var(--border-color);
+}
+
+@media screen and (min-width: 768px) {
+  td {
+    padding: 0.5rem 1rem;
+  }
+}

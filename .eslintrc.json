@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/eslint-config-typescript",
+    "@vue/eslint-config-prettier/skip-formatting"
+  ],
+  "rules": {
+    "indent": ["error", 2],
+    "semi": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  }
+}

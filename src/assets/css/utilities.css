@@ -1,0 +1,85 @@
+@media screen and (min-width: 1400px) {
+  .container-xxl {
+    width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.px-2 {
+  padding: 0 0.5rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.py-3 {
+  padding: 1rem 0;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.my-3 {
+  margin: 1rem 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.nav-link {
+  color: #777777;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #555555;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.pill {
+  padding: 0.25rem 0.5rem;
+  border-radius: 40px;
+  background-color: #0d6efd;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hide-md {
+    display: none;
+  }
+
+  .show-md {
+    display: inherit;
+  }
+}
