@@ -110,7 +110,7 @@ fetch_cdn_data<Array<Character>>("character_ids").then((data) => {
 #characterids--statuses {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
 }
 
 .characterids--status {
