@@ -22,7 +22,7 @@ interface Milestone {
 }
 
 interface Dated {
-  date: string
+  date: string;
 }
 
 interface Timeline {
@@ -32,10 +32,8 @@ interface Timeline {
 }
 
 function datedCmp(a: Dated, b: Dated) {
-  if (a.date < b.date)
-    return 1;
-  if (b.date < a.date)
-    return -1;
+  if (a.date < b.date) return 1;
+  if (b.date < a.date) return -1;
   return 0;
 }
 

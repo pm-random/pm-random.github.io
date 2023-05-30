@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cdn_url, type Character, type CharacterCategory } from "@/cdn";
 import { prettyDate } from "@/utils";
-import AccordionItem from "./AccordionItem.vue";
+import AccordionCard from "@/components/AccordionCard.vue";
 
 const props = defineProps<{
   category: CharacterCategory;
@@ -50,7 +50,7 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
 </script>
 
 <template>
-  <AccordionItem :open="true">
+  <AccordionCard :open="true">
     <template #header>
       <div id="characteraccordion--header">
         <div id="characteraccordion--title">{{ category.title }}</div>
@@ -94,7 +94,7 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
         </table>
       </div>
     </template>
-  </AccordionItem>
+  </AccordionCard>
 </template>
 
 <style scoped>
