@@ -15,11 +15,19 @@ fetch_cdn_data<Array<CharacterCategory>>("characters").then((data) => {
 
 <template>
   <h1>Characters</h1>
-  <template v-if="categories != undefined">
+  <div v-if="categories != undefined" id="characters--root">
     <CharacterAccordion
       v-for="category in categories"
       v-bind:key="category.title"
       :category="category"
     />
-  </template>
+  </div>
 </template>
+
+<style scoped>
+#characters--root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+</style>
