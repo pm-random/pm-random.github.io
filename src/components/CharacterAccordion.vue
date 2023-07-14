@@ -58,7 +58,7 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
       </div>
     </template>
     <template #content>
-      <div class="card table-responsive">
+      <div class="table-responsive">
         <table class="w-100">
           <thead>
             <tr>

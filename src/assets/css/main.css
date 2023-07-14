@@ -82,10 +82,6 @@ svg {
   vertical-align: middle;
 }
 
-hr {
-  border: thin solid var(--border-color);
-}
-
 @media screen and (min-width: 768px) {
   td {
     padding: 0.5rem 1rem;

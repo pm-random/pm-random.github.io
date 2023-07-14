@@ -12,24 +12,30 @@ const opened = ref(props.open);
 </script>
 
 <template>
-  <div class="card p-3">
-    <div @click="opened = !opened" id="accordionitem--header">
+  <div class="card">
+    <div @click="opened = !opened" id="accordioncard--header" class="p-3">
       <slot name="header"></slot>
       <img v-if="opened" src="@/assets/img/material_remove.svg" />
       <img v-else src="@/assets/img/material_add.svg" />
     </div>
-    <div v-if="opened" class="mt-2">
+    <div v-if="opened">
+      <div id="accordioncard--divider"></div>
       <slot name="content"></slot>
     </div>
   </div>
 </template>
 
 <style scoped>
-#accordionitem--header {
+#accordioncard--header {
   user-select: none;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#accordioncard--divider {
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
 }
 </style>
