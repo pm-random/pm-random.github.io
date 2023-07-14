@@ -9,7 +9,7 @@ export interface VoiceActor {
   characters: Array<VACharacter>;
 }
 
-type FormerVoiceActor = VoiceActor & { notes: string }
+type FormerVoiceActor = VoiceActor & { notes: string };
 
 export interface VACharacter {
   id: string;
@@ -37,11 +37,13 @@ const exceptions_promise = fetch_cdn_data<Array<VAException>>("va/exceptions");
 
 useHead({ title: "Voice Actors | PM Random" });
 
-Promise.all([actors_promise, former_promise, exceptions_promise]).then(([_actors, _former, _exceptions]) => {
-  actors.value = _actors;
-  formerActors.value = _former;
-  exceptions.value = new Map(_exceptions.map((ex) => [ex.id, ex.path]));
-});
+Promise.all([actors_promise, former_promise, exceptions_promise]).then(
+  ([_actors, _former, _exceptions]) => {
+    actors.value = _actors;
+    formerActors.value = _former;
+    exceptions.value = new Map(_exceptions.map((ex) => [ex.id, ex.path]));
+  }
+);
 </script>
 
 <template>
@@ -96,7 +98,7 @@ Promise.all([actors_promise, former_promise, exceptions_promise]).then(([_actors
               <div>{{ actor.name }}</div>
               <div v-if="actor.name_jp" class="voiceactors--jp">{{ actor.name_jp }}</div>
             </td>
-            <td>{{ actor.characters.map(c => c.name).join(", ") }}</td>
+            <td>{{ actor.characters.map((c) => c.name).join(", ") }}</td>
             <td>{{ actor.notes }}</td>
           </tr>
         </tbody>

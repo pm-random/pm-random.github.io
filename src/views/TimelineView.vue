@@ -5,15 +5,15 @@ import { fetch_cdn_data } from "@/cdn";
 import { prettyDate } from "@/utils";
 
 interface Item {
-  name: string
-  date: string
-  category?: string
-  link?: string
-  detail?: string
-  weight?: number
+  name: string;
+  date: string;
+  category?: string;
+  link?: string;
+  detail?: string;
+  weight?: number;
 }
 
-function groupBy<K, V>(list: Array<V>, keyGetter: ((item: V) => K)) {
+function groupBy<K, V>(list: Array<V>, keyGetter: (item: V) => K) {
   const map = new Map<K, Array<V>>();
   list.forEach((item) => {
     const key = keyGetter(item);
@@ -27,40 +27,33 @@ function groupBy<K, V>(list: Array<V>, keyGetter: ((item: V) => K)) {
   return map;
 }
 
-
 function itemCmp(a: Item, b: Item) {
   const dateCmpResult = b.date.localeCompare(a.date);
-  if (dateCmpResult !== 0)
-    return dateCmpResult;
-  if (a.weight !== undefined && b.weight === undefined)
-    return -1;
-  if (a.weight === undefined && b.weight !== undefined)
-    return 1;
-  if (a.weight === undefined && b.weight === undefined)
-    return a.name.localeCompare(b.name);
+  if (dateCmpResult !== 0) return dateCmpResult;
+  if (a.weight !== undefined && b.weight === undefined) return -1;
+  if (a.weight === undefined && b.weight !== undefined) return 1;
+  if (a.weight === undefined && b.weight === undefined) return a.name.localeCompare(b.name);
 
   const weightCmpResult = b.weight!! - a.weight!!;
-  if (weightCmpResult !== 0)
-    return weightCmpResult;
+  if (weightCmpResult !== 0) return weightCmpResult;
 
   return a.name.localeCompare(b.name);
 }
 
-
 useHead({ title: "Timeline | PM Random" });
 
-const weightMap = new Map([[1, "timeline--minor"], [2, "timeline--major"]]);
+const weightMap = new Map([
+  [1, "timeline--minor"],
+  [2, "timeline--major"]
+]);
 
 const items = ref<Array<Item>>();
 const comps = computed(() => {
-  if (items.value === undefined)
-    return undefined;
-  else
-    return groupBy<string, Item>(items.value, item => item.date);
+  if (items.value === undefined) return undefined;
+  else return groupBy<string, Item>(items.value, (item) => item.date);
 });
 
-
-fetch_cdn_data<Array<Item>>("timeline").then(timeline => {
+fetch_cdn_data<Array<Item>>("timeline").then((timeline) => {
   items.value = timeline.sort(itemCmp);
 });
 </script>
