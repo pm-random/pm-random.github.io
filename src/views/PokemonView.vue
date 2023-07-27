@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 import { fetch_cdn_data, type Character, type CharacterCategory } from "@/cdn";
 import CharacterAccordion from "@/components/CharacterAccordion.vue";
 
-useHead({ title: "Pokémon | PM Random" });
+useTitle("Pokémon | PM Random");
 
 const category = ref<CharacterCategory>();
 

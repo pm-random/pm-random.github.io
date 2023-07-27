@@ -5,7 +5,7 @@ import SiteLogoText from "./SiteLogoText.vue";
 
 <template>
   <div id="sitelogo--root">
-    <img :src="cdn_url('images/menu/mascot.png')" id="sitelogo--mascot" />
+    <img :src="cdn_url('images/site-logo.png')" id="sitelogo--mascot" />
     <SiteLogoText />
   </div>
 </template>

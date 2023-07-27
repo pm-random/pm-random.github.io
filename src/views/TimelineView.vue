@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 import { fetch_cdn_data } from "@/cdn";
 import { prettyDate } from "@/utils";
 
@@ -40,7 +40,7 @@ function itemCmp(a: Item, b: Item) {
   return a.name.localeCompare(b.name);
 }
 
-useHead({ title: "Timeline | PM Random" });
+useTitle("Timeline | PM Random");
 
 const weightMap = new Map([
   [1, "timeline--minor"],

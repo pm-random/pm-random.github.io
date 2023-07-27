@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 import { fetch_cdn_data } from "@/cdn";
 
 interface Character {
@@ -23,7 +23,7 @@ const counts = ref({
   idOnly: 0
 });
 
-useHead({ title: "Character IDs | PM Random" });
+useTitle("Character IDs | PM Random");
 
 fetch_cdn_data<Array<Character>>("character_ids").then((data) => {
   counts.value = {

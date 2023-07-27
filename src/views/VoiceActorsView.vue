@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 import { cdn_url, fetch_cdn_data } from "@/cdn";
 
 export interface VoiceActor {
@@ -35,7 +35,7 @@ const actors_promise = fetch_cdn_data<Array<VoiceActor>>("va/jp");
 const former_promise = fetch_cdn_data<Array<FormerVoiceActor>>("va/jp_former");
 const exceptions_promise = fetch_cdn_data<Array<VAException>>("va/exceptions");
 
-useHead({ title: "Voice Actors | PM Random" });
+useTitle("Voice Actors | PM Random");
 
 Promise.all([actors_promise, former_promise, exceptions_promise]).then(
   ([_actors, _former, _exceptions]) => {

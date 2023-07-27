@@ -14,7 +14,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@unhead/vue": "^1.1.26",
+    "@vueuse/core": "^10.2.1",
     "highcharts": "^11.0.1",
     "highcharts-vue": "^1.4.1",
     "vue": "^3.3.2",

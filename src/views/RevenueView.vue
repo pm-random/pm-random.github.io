@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 import { Chart as HighchartsChart } from "highcharts-vue";
 import { fetch_cdn_data } from "@/cdn";
 
@@ -21,7 +21,7 @@ interface Revenue {
 
 const chartOptions = ref();
 
-useHead({ title: "Revenue | PM Random" });
+useTitle("Revenue | PM Random");
 
 fetch_cdn_data<Revenue>("revenue").then((revenue) => {
   chartOptions.value = {

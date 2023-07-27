@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { cdn_url } from "@/cdn";
+import { useTitle } from "@vueuse/core";
 import SiteLogoText from "@/components/SiteLogoText.vue";
+
+useTitle("PM Random");
 
 interface Item {
   title: string;
@@ -9,7 +12,7 @@ interface Item {
 }
 
 const items: Array<Item> = [
-  { title: "Characters", link: "/characters", image: cdn_url("images/menu/mascot.png") },
+  { title: "Characters", link: "/characters", image: cdn_url("images/site-logo.png") },
   { title: "Pokémon", link: "/pokemon", image: cdn_url("images/menu/pokemon.png") },
   { title: "Revenue", link: "/revenue", image: cdn_url("images/menu/revenue.png") },
   { title: "Timeline", link: "/timeline", image: cdn_url("images/menu/timeline.png") },

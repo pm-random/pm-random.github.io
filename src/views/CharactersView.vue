@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 import { fetch_cdn_data, type CharacterCategory } from "@/cdn";
 import CharacterAccordion from "@/components/CharacterAccordion.vue";
 
 const categories = ref<Array<CharacterCategory>>();
 
-useHead({ title: "Characters | PM Random" });
+useTitle("Characters | PM Random");
 
 fetch_cdn_data<Array<CharacterCategory>>("characters").then((data) => {
   categories.value = data;

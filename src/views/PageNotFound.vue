@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { cdn_url } from "@/cdn";
-import { useHead } from "@unhead/vue";
+import { useTitle } from "@vueuse/core";;
 
-useHead({ title: "Page not found | PM Random" });
+useTitle("Page not found | PM Random");
 </script>
 
 <template>
