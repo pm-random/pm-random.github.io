@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cdn_url } from "@/cdn";
-import { useTitle } from "@vueuse/core";;
+import { useTitle } from "@vueuse/core";
 
 useTitle("Page not found | PM Random");
 </script>

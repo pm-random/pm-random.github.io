@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useTitle } from "@vueuse/core";;
+import { useTitle } from "@vueuse/core";
 import { fetch_cdn_data } from "@/cdn";
 
 interface Character {

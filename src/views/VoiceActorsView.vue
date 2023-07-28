@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useTitle } from "@vueuse/core";;
+import { useTitle } from "@vueuse/core";
 import { cdn_url, fetch_cdn_data } from "@/cdn";
 
 export interface VoiceActor {
