@@ -5,7 +5,7 @@ import SiteLogoText from "./SiteLogoText.vue";
 
 <template>
   <div id="sitelogo--root">
-    <img :src="cdn_url('images/site-logo.png')" id="sitelogo--mascot" />
+    <img :src="cdn_url('images/logo.png')" id="sitelogo--img" />
     <SiteLogoText />
   </div>
 </template>
@@ -17,7 +17,7 @@ import SiteLogoText from "./SiteLogoText.vue";
   gap: 0.25rem;
 }
 
-#sitelogo--mascot {
+#sitelogo--img {
   max-height: 2.25rem;
 }
 </style>
