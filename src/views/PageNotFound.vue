@@ -7,7 +7,7 @@ useTitle("Page not found | PM Random");
 
 <template>
   <div id="pagenotfound--root">
-    <img :src="cdn_url('images/menu/mascot.png')" id="pagenotfound--mascot" />
+    <img :src="cdn_url('images/logo.png')" id="pagenotfound--logo" />
     <div class="pagenotfound--bold">Page not found :(</div>
     <router-link class="pagenotfound--bold" to="/">Home</router-link>
   </div>
@@ -22,7 +22,7 @@ useTitle("Page not found | PM Random");
   gap: 0.125em;
 }
 
-#pagenotfound--mascot {
+#pagenotfound--logo {
   max-height: 160px;
 }
 
