@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { useTitle } from "@vueuse/core";
 import { cdn_url, fetch_cdn_data } from "@/cdn";
 
-export interface VoiceActor {
+interface VoiceActor {
   name: string;
   name_jp?: string;
   characters: Array<VACharacter>;
@@ -11,12 +11,12 @@ export interface VoiceActor {
 
 type FormerVoiceActor = VoiceActor & { notes: string };
 
-export interface VACharacter {
+interface VACharacter {
   id: string;
   name: string;
 }
 
-export interface VAException {
+interface VAException {
   id: string;
   path: string;
 }
