@@ -49,61 +49,65 @@ Promise.all([actors_promise, former_promise, exceptions_promise]).then(
 <template>
   <div>
     <h1>Voice Actors</h1>
-    <h2>Current</h2>
-    <div v-if="actors != undefined && exceptions != undefined" class="card table-responsive">
-      <table class="w-100">
-        <thead>
-          <tr>
+    <template v-if="actors != undefined && exceptions != undefined">
+      <h2>Current</h2>
+      <div class="card table-responsive">
+        <table class="w-100">
+          <thead>
+            <tr>
+              <th>Voice actor</th>
+              <th>Characters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="actor in actors" :key="actor.name">
+              <td>
+                <div>{{ actor.name }}</div>
+                <div v-if="actor.name_jp" class="voiceactors--jp">{{ actor.name_jp }}</div>
+              </td>
+              <td>
+                <div class="voiceactors--chara-list">
+                  <figure
+                    v-for="character in actor.characters"
+                    :key="character.id"
+                    class="voiceactors--chara px-2"
+                  >
+                    <img
+                      :src="id_to_cdn_url(character.id, exceptions)"
+                      class="voiceactors--chara-img"
+                      loading="lazy"
+                    />
+                    <figcaption>{{ character.name }}</figcaption>
+                  </figure>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+    <template v-if="formerActors != undefined">
+      <h2>Former</h2>
+      <div class="card table-responsive">
+        <table class="w-100">
+          <thead>
             <th>Voice actor</th>
             <th>Characters</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="actor in actors" :key="actor.name">
-            <td>
-              <div>{{ actor.name }}</div>
-              <div v-if="actor.name_jp" class="voiceactors--jp">{{ actor.name_jp }}</div>
-            </td>
-            <td>
-              <div class="voiceactors--chara-list">
-                <figure
-                  v-for="character in actor.characters"
-                  :key="character.id"
-                  class="voiceactors--chara px-2"
-                >
-                  <img
-                    :src="id_to_cdn_url(character.id, exceptions)"
-                    class="voiceactors--chara-img"
-                    loading="lazy"
-                  />
-                  <figcaption>{{ character.name }}</figcaption>
-                </figure>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h2>Former</h2>
-    <div v-if="formerActors != undefined" class="card table-responsive">
-      <table class="w-100">
-        <thead>
-          <th>Voice actor</th>
-          <th>Characters</th>
-          <th>Notes</th>
-        </thead>
-        <tbody>
-          <tr v-for="(actor, index) in formerActors" :key="index">
-            <td>
-              <div>{{ actor.name }}</div>
-              <div v-if="actor.name_jp" class="voiceactors--jp">{{ actor.name_jp }}</div>
-            </td>
-            <td>{{ actor.characters.map((c) => c.name).join(", ") }}</td>
-            <td>{{ actor.notes }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            <th>Notes</th>
+          </thead>
+          <tbody>
+            <tr v-for="(actor, index) in formerActors" :key="index">
+              <td>
+                <div>{{ actor.name }}</div>
+                <div v-if="actor.name_jp" class="voiceactors--jp">{{ actor.name_jp }}</div>
+              </td>
+              <td>{{ actor.characters.map((c) => c.name).join(", ") }}</td>
+              <td>{{ actor.notes }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
   </div>
 </template>
 
