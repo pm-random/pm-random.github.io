@@ -12,7 +12,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --max-warnings=0",
     "format": "prettier --write src/",
-    "clean": "npm run lint && npm run format"
+    "clean": "npm run format && npm run lint"
   },
   "dependencies": {
     "@vueuse/core": "^10.2.1",
@@ -22,7 +22,7 @@
     "vue-router": "^4.2.0"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^1.0.1",
+    "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.1.4",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^7.1.0",
@@ -32,7 +32,7 @@
     "eslint-plugin-vue": "^9.11.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
-    "typescript": "~5.0.4",
+    "typescript": "~5.1.0",
     "vite": "^4.3.5",
     "vue-tsc": "^1.6.4"
   }
