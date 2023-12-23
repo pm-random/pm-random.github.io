@@ -1,0 +1,42 @@
+run-name: Build site and update GitHub Pages branch
+
+on:
+  push:
+    branches: main
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  USER: pm-random
+  REPO: pm-random.github.io
+  BRANCH: gh-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Clean install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+  push:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Create local Git repository
+        working-directory: dist
+        run: |
+          git init
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add -A
+          git commit -m build
+      - name: Update GitHub Pages branch
+        working-directory: dist
+        run: git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git" "main:$BRANCH"
