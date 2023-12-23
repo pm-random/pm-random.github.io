@@ -1,4 +1,4 @@
-run-name: Build site and push to GitHub Pages branch
+run-name: Build site and update GitHub Pages branch
 
 on:
   push:
@@ -11,7 +11,7 @@ defaults:
 env:
   USER: pm-random
   REPO: pm-random.github.io
-  BRANCH: gh-pages
+  PAGES_BRANCH: pages
 
 jobs:
   build:
@@ -25,12 +25,12 @@ jobs:
         run: npm ci
       - name: Build site
         run: npm run build
-      - name: Push to GitHub Pages branch
+      - name: Update GitHub Pages branch
         working-directory: dist
         run: |
-          git init
+          git init --initial-branch $PAGES_BRANCH
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add -A
           git commit -m build
-          git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git" "main:$BRANCH"
+          git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git"
