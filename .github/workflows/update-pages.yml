@@ -1,4 +1,4 @@
-run-name: Build site and update GitHub Pages branch
+run-name: Build site and push to GitHub Pages branch
 
 on:
   push:
@@ -21,15 +21,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Clean install dependencies
+      - name: Install dependencies
         run: npm ci
-      - name: Build
+      - name: Build site
         run: npm run build
-  push:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Create local Git repository
+      - name: Push to GitHub Pages branch
         working-directory: dist
         run: |
           git init
@@ -37,6 +33,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add -A
           git commit -m build
-      - name: Update GitHub Pages branch
-        working-directory: dist
-        run: git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git" "main:$BRANCH"
+          git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git" "main:$BRANCH"
