@@ -11,7 +11,7 @@ defaults:
 env:
   USER: pm-random
   REPO: pm-random.github.io
-  PAGES_BRANCH: pages
+  BRANCH: pages
 
 jobs:
   build:
@@ -28,9 +28,9 @@ jobs:
       - name: Update GitHub Pages branch
         working-directory: dist
         run: |
-          git init --initial-branch $PAGES_BRANCH
+          git init --initial-branch $BRANCH
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add -A
           git commit -m build
-          git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git"
+          git push -f "https://$USER:${{ secrets.GITHUB_TOKEN }}@github.com/$USER/$REPO.git" "$BRANCH:$BRANCH"
