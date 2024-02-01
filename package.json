@@ -4,15 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start.dev": "vite --mode dev",
-    "start.prod": "vite",
-    "start.host": "vite --host --port 8080",
+    "dev": "vite --mode dev",
+    "prod": "vite",
+    "dev.host": "vite --mode dev --host --port 8080",
+    "prod.host": "vite --host --port 8080",
+    "preview": "vite preview --host --port 8080",
     "build": "run-p type-check build-only",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "clean": "npm run format && npm run lint",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --max-warnings=0",
-    "format": "prettier --write src/",
-    "clean": "npm run format && npm run lint"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@vueuse/core": "^10.2.1",
