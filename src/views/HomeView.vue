@@ -80,7 +80,7 @@ const items: Array<Item> = [
 }
 
 .home--item-label {
-  font-family: "Rajdhani", sans-serif;
+  font-family: var(--title-font-family);
   font-weight: bold;
   font-size: 1.5em;
 }

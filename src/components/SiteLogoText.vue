@@ -23,7 +23,7 @@ const versionSize = props.large ? "1.5rem" : "0.875rem";
 
 <style scoped>
 #sitelogotext--root {
-  font-family: "Rajdhani";
+  font-family: var(--title-font-family);
   user-select: none;
 }
 

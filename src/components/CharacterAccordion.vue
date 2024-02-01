@@ -106,7 +106,7 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
 
 #characteraccordion--title {
   font-size: 1.25rem;
-  font-family: "Rajdhani", "sans-serif";
+  font-family: var(--title-font-family);
 }
 
 #characteraccordion--badge {

@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Rajdhani";
   font-weight: 600;
-  src: url(rajdhani-semibold.woff2) format("woff2");
+  src: url(@/assets/fonts/rajdhani-semibold.woff2) format("woff2");
 }
 
 :root {
@@ -14,6 +14,7 @@
   --accent-color: #be1a39;
   --border-color: #dfdfdf;
   --border-radius: 8px;
+  --title-font-family: "Rajdhani", system-ui, sans-serif;
 }
 
 body {
@@ -26,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rajdhani", system-ui, sans-serif;
+  font-family: var(--title-font-family);
   margin: 0.5rem 0;
 }
 
@@ -56,7 +57,7 @@ tbody > tr:nth-child(2n + 1) {
 }
 
 th {
-  font-family: "Rajdhani", system-ui, sans-serif;
+  font-family: var(--title-font-family);
   text-align: center;
   padding: 0.5rem 1rem;
 }
