@@ -20,6 +20,7 @@ const items = [
     >
       {{ item.title }}
     </router-link>
+    <a class="nav-link" href="https://github.com/pm-random" data-umami-event="github-link">GitHub</a>
   </div>
 </template>
 

@@ -29,8 +29,6 @@ const items: Array<Item> = [
   <div>
     <div id="home--header" class="mb-3">
       <SiteLogoText :large="true" class="mb-2" />
-      <div>Random information about Pokémon Masters</div>
-      <a href="https://github.com/pm-random" id="home--github">GitHub</a>
     </div>
     <div id="home--grid">
       <router-link
@@ -51,10 +49,6 @@ const items: Array<Item> = [
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#home--github {
-  text-decoration: none;
 }
 
 #home--grid {
