@@ -21,6 +21,11 @@ interface VAException {
   path: string;
 }
 
+interface ExceptionAndFormer {
+  exceptions: Array<VAException>
+  jp_former: Array<FormerVoiceActor>
+}
+
 function id_to_cdn_url(id: string, exceptions: Map<string, string>) {
   const path = exceptions.get(id);
   if (path == undefined) return cdn_url(`images/characters/256/${id}_256.ktx.png`);
@@ -32,16 +37,15 @@ const formerActors = ref<Array<FormerVoiceActor>>();
 const exceptions = ref<Map<string, string>>();
 
 const actors_promise = fetch_cdn_data<Array<VoiceActor>>("va/jp");
-const former_promise = fetch_cdn_data<Array<FormerVoiceActor>>("va/jp_former");
-const exceptions_promise = fetch_cdn_data<Array<VAException>>("va/exceptions");
+const misc_promise = fetch_cdn_data<ExceptionAndFormer>("va/misc");
 
 useTitle("Voice Actors | PM Random");
 
-Promise.all([actors_promise, former_promise, exceptions_promise]).then(
-  ([_actors, _former, _exceptions]) => {
+Promise.all([actors_promise, misc_promise]).then(
+  ([_actors, _misc]) => {
     actors.value = _actors;
-    formerActors.value = _former;
-    exceptions.value = new Map(_exceptions.map((ex) => [ex.id, ex.path]));
+    formerActors.value = _misc.jp_former;
+    exceptions.value = new Map(_misc.exceptions.map((ex) => [ex.id, ex.path]));
   }
 );
 </script>
