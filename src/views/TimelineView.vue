@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useTitle } from "@vueuse/core";
-import { fetch_cdn_data } from "@/cdn";
+import { cdn_url, fetch_cdn_data } from "@/cdn";
 import { prettyDate } from "@/utils";
 
 interface Item {
@@ -9,6 +9,7 @@ interface Item {
   date: string;
   category?: string;
   link?: string;
+  icon?: string;
   detail?: string;
   weight?: number;
 }
@@ -40,6 +41,12 @@ function itemCmp(a: Item, b: Item) {
   return a.name.localeCompare(b.name);
 }
 
+function itemMapper(item: Item) {
+  if (item.icon === undefined)
+    return item
+  return { ...item, icon: cdn_url(item.icon) }
+}
+
 useTitle("Timeline | PM Random");
 
 const weightMap = new Map([
@@ -48,19 +55,19 @@ const weightMap = new Map([
 ]);
 
 const items = ref<Array<Item>>();
-const comps = computed(() => {
+const groups = computed(() => {
   if (items.value === undefined) return undefined;
   else return groupBy<string, Item>(items.value, (item) => item.date);
 });
 
 fetch_cdn_data<Array<Item>>("timeline").then((timeline) => {
-  items.value = timeline.sort(itemCmp);
+  items.value = timeline.sort(itemCmp).map(itemMapper);
 });
 </script>
 
 <template>
   <h1>Timeline</h1>
-  <template v-if="comps != null">
+  <template v-if="groups != null">
     <div class="card">
       <table class="w-100">
         <thead>
@@ -70,10 +77,11 @@ fetch_cdn_data<Array<Item>>("timeline").then((timeline) => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="[date, items] in comps" :key="date">
+          <tr v-for="[date, items] in groups" :key="date">
             <td>{{ prettyDate(date) }}</td>
             <td>
-              <div v-for="(item, index) in items" :key="index">
+              <div v-for="(item, index) in items" class="timeline--item" :key="index">
+                <img v-if="item.icon" :src="item.icon" class="timeline--icon"/>
                 <span :class="item.weight ? weightMap.get(item.weight) : null">
                   <a v-if="item.link" :href="item.link">{{ item.name }}</a>
                   <template v-else>{{ item.name }}</template>
@@ -88,10 +96,20 @@ fetch_cdn_data<Array<Item>>("timeline").then((timeline) => {
 </template>
 
 <style scoped>
+.timeline--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 .timeline--major {
   font-weight: 700;
 }
 .timeline--minor {
   font-weight: 600;
+}
+.timeline--icon {
+  height: 24px;
+  width: 24px;
 }
 </style>
