@@ -48,10 +48,6 @@ thead {
   border-bottom: 1px solid var(--border-color);
 }
 
-tr:not(:last-child) {
-  border-bottom: 1px solid var(--border-color);
-}
-
 tbody > tr:nth-child(2n + 1) {
   background-color: #f1f1f1;
 }
