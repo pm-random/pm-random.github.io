@@ -35,7 +35,7 @@ const items: Array<Item> = [
         v-for="item in items"
         :key="item.link"
         :to="item.link"
-        class="home--item card p-1"
+        class="home--item card p-2"
       >
         <img class="home--item-image" :src="item.image" />
         <div class="home--item-label">{{ item.title }}</div>
@@ -53,29 +53,31 @@ const items: Array<Item> = [
 
 #home--grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-gap: 0.75rem;
   margin-top: auto;
   margin-bottom: auto;
 }
 
 .home--item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   text-decoration: none;
-  display: inline;
-  text-align: center;
 }
 
 .home--item:hover {
-  background-color: #ebebeb;
+  text-decoration: underline;
 }
 
 .home--item-image {
-  max-height: 72px;
+  max-height: 48px;
+  border-radius: var(--border-radius);
 }
 
 .home--item-label {
   font-family: var(--title-font-family);
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 </style>
