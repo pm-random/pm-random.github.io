@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useTitle } from "@vueuse/core";
 import { fetch_cdn_data } from "@/cdn";
+import Badge from "@/components/Badge.vue";
 
 interface Character {
   number: string;
@@ -61,19 +62,19 @@ fetch_cdn_data<Array<Character>>("character_ids").then((data) => {
     <div id="characterids--statuses" class="mb-3">
       <div class="p-2 card characterids--status">
         <div>Scoutable</div>
-        <div class="pill">{{ counts.scoutable }}</div>
+        <Badge :content="counts.scoutable"></Badge>
       </div>
       <div class="p-2 card characterids--status characterids--playable">
         <div>Playable</div>
-        <div class="pill">{{ counts.playable }}</div>
+        <Badge :content="counts.playable"></Badge>
       </div>
       <div class="p-2 card characterids--status characterids--npc">
         <div>NPC</div>
-        <div class="pill">{{ counts.npc }}</div>
+        <Badge :content="counts.npc"></Badge>
       </div>
       <div class="p-2 card characterids--status characterids--id-only">
         <div>ID-only</div>
-        <div class="pill">{{ counts.idOnly }}</div>
+        <Badge :content="counts.idOnly"></Badge>
       </div>
     </div>
     <div class="card">

@@ -2,6 +2,7 @@
 import { cdn_url, type Character, type CharacterCategory } from "@/cdn";
 import { prettyDate } from "@/utils";
 import Accordion from "@/components/Accordion.vue";
+import Badge from "@/components/Badge.vue";
 
 const props = defineProps<{
   category: CharacterCategory;
@@ -54,7 +55,7 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
     <template #header>
       <div id="charactertable--header">
         <div id="charactertable--title">{{ category.title }}</div>
-        <div class="pill">{{ category.characters.length }}</div>
+        <Badge :content="category.characters.length"></Badge>
       </div>
     </template>
     <template #content>
