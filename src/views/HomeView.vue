@@ -12,7 +12,7 @@ interface Item {
 }
 
 const items: Array<Item> = [
-  { title: "Characters", link: "/characters", image: cdn_url("images/menu/characters.png") },
+  { title: "Unobtainable Characters", link: "/characters", image: cdn_url("images/menu/characters.png") },
   { title: "Pokémon", link: "/pokemon", image: cdn_url("images/menu/pokemon.png") },
   { title: "Revenue", link: "/revenue", image: cdn_url("images/menu/revenue.png") },
   { title: "Timeline", link: "/timeline", image: cdn_url("images/menu/timeline.png") },

@@ -6,7 +6,7 @@ import CharacterTable from "@/components/CharacterTable.vue";
 
 const categories = ref<Array<CharacterCategory>>();
 
-useTitle("Characters | PM Random");
+useTitle("Unobtainable Characters | PM Random");
 
 fetch_cdn_data<Array<CharacterCategory>>("characters").then((data) => {
   categories.value = data;
