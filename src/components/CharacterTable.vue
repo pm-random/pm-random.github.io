@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cdn_url, type Character, type CharacterCategory } from "@/cdn";
 import { prettyDate } from "@/utils";
-import AccordionCard from "@/components/AccordionCard.vue";
+import Accordion from "@/components/Accordion.vue";
 
 const props = defineProps<{
   category: CharacterCategory;
@@ -50,15 +50,15 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
 </script>
 
 <template>
-  <AccordionCard :open="true">
+  <Accordion>
     <template #header>
-      <div id="characteraccordion--header">
-        <div id="characteraccordion--title">{{ category.title }}</div>
+      <div id="charactertable--header">
+        <div id="charactertable--title">{{ category.title }}</div>
         <div class="pill">{{ category.characters.length }}</div>
       </div>
     </template>
     <template #content>
-      <div class="table-responsive">
+      <div class="table-responsive card">
         <table class="w-100">
           <thead>
             <tr>
@@ -74,9 +74,9 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
               <template v-if="category.hasImages">
                 <td v-if="character.images === undefined">&mdash;</td>
                 <td v-else>
-                  <div class="characteraccordion--images">
+                  <div class="charactertable--images">
                     <a v-for="image in character.images" :href="image" :key="image">
-                      <img class="characteraccordion--image" :src="image" loading="lazy" />
+                      <img class="charactertable--image" :src="image" loading="lazy" />
                     </a>
                   </div>
                 </td>
@@ -94,29 +94,29 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
         </table>
       </div>
     </template>
-  </AccordionCard>
+  </Accordion>
 </template>
 
 <style scoped>
-#characteraccordion--header {
+#charactertable--header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-#characteraccordion--title {
+#charactertable--title {
   font-size: 1.25rem;
   font-family: var(--title-font-family);
 }
 
-#characteraccordion--badge {
+#charactertable--badge {
   padding: 0.15rem 0.75rem;
   border-radius: 4px;
   background-color: dodgerblue;
   color: white;
 }
 
-.characteraccordion--images {
+.charactertable--images {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,12 +124,12 @@ function enhanceCategory(category: CharacterCategory): EnhancedCategory {
   gap: 0.25rem;
 }
 
-.characteraccordion--image {
+.charactertable--image {
   max-height: 3.5rem;
 }
 
 @media screen and (min-width: 768px) {
-  .characteraccordion--images {
+  .charactertable--images {
     flex-direction: row;
   }
 }

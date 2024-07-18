@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useTitle } from "@vueuse/core";
 import { fetch_cdn_data, type CharacterCategory } from "@/cdn";
-import CharacterAccordion from "@/components/CharacterAccordion.vue";
+import CharacterTable from "@/components/CharacterTable.vue";
 
 const categories = ref<Array<CharacterCategory>>();
 
@@ -15,19 +15,11 @@ fetch_cdn_data<Array<CharacterCategory>>("characters").then((data) => {
 
 <template>
   <h1>Characters</h1>
-  <div v-if="categories != undefined" id="characters--root">
-    <CharacterAccordion
+  <div v-if="categories != undefined">
+    <CharacterTable
       v-for="category in categories"
       v-bind:key="category.title"
       :category="category"
     />
   </div>
 </template>
-
-<style scoped>
-#characters--root {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-</style>

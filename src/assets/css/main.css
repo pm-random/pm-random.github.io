@@ -82,6 +82,15 @@ svg {
   vertical-align: middle;
 }
 
+hr {
+  border-bottom: thin solid var(--border-color);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+  margin: 0;
+}
+
 @media screen and (min-width: 768px) {
   td {
     padding: 0.5rem 1rem;

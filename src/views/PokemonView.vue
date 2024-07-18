@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useTitle } from "@vueuse/core";
 import { fetch_cdn_data, type Character, type CharacterCategory } from "@/cdn";
-import CharacterAccordion from "@/components/CharacterAccordion.vue";
+import CharacterTable from "@/components/CharacterTable.vue";
 
 useTitle("Pokémon | PM Random");
 
@@ -19,6 +19,6 @@ fetch_cdn_data<Array<Character>>("pokemon_beta").then((data) => {
 <template>
   <h1>Pokémon</h1>
   <template v-if="category != undefined">
-    <CharacterAccordion :category="category" />
+    <CharacterTable :category="category" />
   </template>
 </template>
