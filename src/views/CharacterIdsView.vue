@@ -72,10 +72,6 @@ fetch_cdn_data<Array<Character>>("character_ids").then((data) => {
         <div>NPC</div>
         <Badge :content="counts.npc"></Badge>
       </div>
-      <div class="p-2 card characterids--status characterids--id-only">
-        <div>ID-only</div>
-        <Badge :content="counts.idOnly"></Badge>
-      </div>
     </div>
     <div class="card">
       <table class="w-100">
