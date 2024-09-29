@@ -1,0 +1,1 @@
+import{d as t,c as o,t as s,o as a,_ as n}from"./index-DL_YHEuF.js";const c={class:"badge-- px-2 py-1"},p=t({__name:"Badge",props:{content:{}},setup(_){return(e,r)=>(a(),o("div",c,s(e.content),1))}}),i=n(p,[["__scopeId","data-v-fd209057"]]);export{i as B};
